@@ -35,7 +35,6 @@
     "request": "^2.88.2",
     "scrape-yt": "^1.4.8",
     "ssl-express-www": "^3.0.7",
-    "tiktok-scraper": "^1.4.12",
     "urlencode": "^1.1.0",
     "ytdl-core": "^4.4.5",
     "ytpl": "^2.0.5"
