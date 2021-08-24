@@ -4,6 +4,7 @@
   "description": "res api website",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "start"
   },
   "repository": {
