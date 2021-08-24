@@ -19,6 +19,10 @@ router.get('/docs/media', (req, res) => {
 	res.sendFile(__path + '/api/media.html')
 })
 
+router.get('/docs/anime', (req, res) => {
+	res.sendFile(__path + '/api/anime.html')
+})
+
 router.get('/config', (req, res) => {
     config = {
         status: true,

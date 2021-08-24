@@ -37,11 +37,11 @@ _ = require('lodash')
 __path = process.cwd();
 
 loghandler = {
-    notkey: {
+    notsearch: {
         status: false,
         creator: `${creator}`,
         code: 406,
-        message: 'masukan parameter key'
+        message: 'masukan parameter pencarian'
     },
     noturl: {
         status: false,
@@ -55,11 +55,11 @@ loghandler = {
     code: 406,
     message: 'masukan kode bahasa'
 },
-    notkata: {
+    notpage: {
         status: false,
         creator: `${creator}`,
         code: 406,
-        message: 'masukan parameter kata'
+        message: 'masukan parameter page/halaman/angka'
     },
     nottext: {
         status: false,
@@ -174,6 +174,85 @@ router.get('/find', async (req, res, next) => {
         console.log(e)
         res.json(loghandler.error)
     }
+})
+
+router.get('/samehadaku/genre', async (req, res, next) => {
+             var search = req.query.search;
+   
+	if (!search) return res.json(loghandler.notsearch)
+       fetch(encodeURI(`https://arnz-samehadaku.herokuapp.com/genre/${search}`))
+        .then(response => response.json())
+        .then(data => {
+        var data = data;
+             res.json({
+             	data,
+             	message: `Ok`,
+             	status: `Success`,
+             	maintanied_by: `${creator}`
+             })
+         })
+         .catch(e => {
+         	res.json(loghandler.error)
+})
+})
+
+router.get('/samehadaku/page', async (req, res, next) => {
+             var page = req.query.page;
+   
+	if (!page) return res.json(loghandler.notpage)
+	if (isNaN(page)) return res.json(loghandler.notpage)
+       fetch(encodeURI(`https://arnz-samehadaku.herokuapp.com/page/${page}`))
+        .then(response => response.json())
+        .then(data => {
+        var data = data;
+             res.json({
+             	data,
+             	message: `Ok`,
+             	status: `Success`,
+             	maintanied_by: `${creator}`
+             })
+         })
+         .catch(e => {
+         	res.json(loghandler.error)
+})
+})
+
+router.get('/samehadaku/anime', async (req, res, next) => {
+             var search = req.query.search;
+   
+	if (!search) return res.json(loghandler.notsearch)
+       fetch(encodeURI(`https://arnz-samehadaku.herokuapp.com/anime/${search}`))
+        .then(response => response.json())
+        .then(data => {
+        var data = data;
+             res.json({
+             	data,
+             	message: `Ok`,
+             	status: `Success`,
+             	maintanied_by: `${creator}`
+             })
+         })
+         .catch(e => {
+         	res.json(loghandler.error)
+})
+})
+
+router.get('/samehadaku/season', async (req, res, next) => {
+
+       fetch(encodeURI(`https://arnz-samehadaku.herokuapp.com/season`))
+        .then(response => response.json())
+        .then(data => {
+        var data = data;
+             res.json({
+             	data,
+             	message: `Ok`,
+             	status: `Success`,
+             	maintanied_by: `${creator}`
+             })
+         })
+         .catch(e => {
+         	res.json(loghandler.error)
+})
 })
 
 router.get('/pinterest/stalk', async (req, res, next) => {
