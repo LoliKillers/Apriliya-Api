@@ -21,3 +21,9 @@
 <a href="https://github.com/LoliKillers/Arnz-Api/graphs/commit-activity" alt="Maintenance"> <img src="https://img.shields.io/badge/maintained%3F-yes-blue.svg" /> </a>
 <a href="https://makeapullrequest.com" alt="PRs Welcome"> <img src="https://img.shields.io/badge/PRs-welcome-blue.svg" /> </a>
 </p>
+
+## ARNZ Rest Api
+
+Repository ini saya buat hanyu untuk membantu mereka yang ingi memiliki rest api website sendiri
+
+## How To Deploy
