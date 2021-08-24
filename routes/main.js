@@ -23,6 +23,18 @@ router.get('/docs/anime', (req, res) => {
 	res.sendFile(__path + '/api/anime.html')
 })
 
+router.get('/docs/game', (req, res) => {
+	res.sendFile(__path + '/api/game.html')
+})
+
+router.get('/docs/other', (req, res) => {
+	res.sendFile(__path + '/api/other.html')
+})
+
+router.get('/docs/downloader', (req, res) => {
+	res.sendFile(__path + '/api/downloader.html')
+})
+
 router.get('/config', (req, res) => {
     config = {
         status: true,

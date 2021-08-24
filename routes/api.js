@@ -176,6 +176,64 @@ router.get('/find', async (req, res, next) => {
     }
 })
 
+router.get('/downloader/jooxsearch', async (req, res, next) => {
+             var search = req.query.search;
+   
+	if (!search) return res.json(loghandler.notsearch)
+       fetch(encodeURI(`https://arnz-api-production.up.railway.app/api/joox/search?q=${search}`))
+        .then(response => response.json())
+        .then(data => {
+        var data = data;
+             res.json({
+             	message: `Ok`,
+             	status: `Success`,
+             	data,
+             	maintanied_by: `${creator}`
+             })
+         })
+         .catch(e => {
+         	res.json(loghandler.error)
+})
+})
+
+router.get('/other/dnslookup', async (req, res, next) => {
+             var url = req.query.url;
+   
+	if (!url) return res.json(loghandler.noturl)
+       fetch(encodeURI(`https://arnz-api-production.up.railway.app/api/dns/lookup?domain=${url}`))
+        .then(response => response.json())
+        .then(data => {
+        var data = data;
+             res.json({
+             	message: `Ok`,
+             	status: `Success`,
+             	data,
+             	maintanied_by: `${creator}`
+             })
+         })
+         .catch(e => {
+         	res.json(loghandler.error)
+})
+})
+
+router.get('/game/caklontong', async (req, res, next) => {
+	
+       fetch(encodeURI(`https://raw.githubusercontent.com/LoliKillers/Arnz-Database/master/game/caklontong.json`))
+        .then(response => response.json())
+        .then(data => {
+        var lontong = data;
+        var result = lontong[Math.floor(Math.random() * lontong.length)];
+             res.json({
+             	message: `Ok`,
+             	status: `Success`,
+             	result
+             })
+         })
+         .catch(e => {
+         	res.json(loghandler.error)
+})
+})
+
 router.get('/samehadaku/genre', async (req, res, next) => {
              var search = req.query.search;
    
