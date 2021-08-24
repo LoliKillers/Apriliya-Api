@@ -185,7 +185,19 @@ router.get('/pinterest/stalk', async (req, res, next) => {
         .then(data => {
         var result = data;
              res.json({
-                 result
+ 				result: {
+ 					location: `${result.data.user.location}`,
+ 					about: `${result.data.user.about}`,
+ 					username: `${result.data.user.full_name}`,
+ 					image_url: `${result.data.user.image_small_url}`,
+ 					pin_count: `${result.data.user.pin_count}`,
+ 					follower_count: `${result.data.user.follower_count}`,
+ 					profile_url: `${result.data.user.profile_url}`
+ 				},
+ 				message: `${result.status}`,
+ 				endpoint: `${result.endpoint_name}`,
+ 				status: `${result.status}`,
+ 				maintanied_by: `${creator}`
              })
          })
          .catch(e => {
@@ -217,14 +229,12 @@ router.get('/photooxy/petterns', async (req, res, next) => {
                                     var urlnya = data.data.url,
                                         delete_url = data.data.delete_url;
                                         res.json({
-                                            status : true,
-                                            creator : `${creator}`,
-                                            message : `jangan lupa follow ${creator}`,
                                             result:{
                                                 url:urlnya,
-                                                delete_url: delete_url,
-                                                info: 'url akan hilang setelah 2 menit'
-                                            }
+                                            },
+                                        	message: `Ok`,
+											status: `Success`,
+											maintanied_by: `${creator}`
                                         })
                                 })
                         })
