@@ -1,0 +1,51 @@
+{
+  "name": "arnz-api",
+  "version": "1.0.0",
+  "description": "res api website",
+  "main": "index.js",
+  "scripts": {
+    "test": "start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/LoliKillers/Arnz-Api.git"
+  },
+  "author": "LolKill",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LoliKillers/Arnz-Api/issues"
+  },
+  "homepage": "https://github.com/LoliKillers/Arnz-Api#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "base-64": "^1.0.0",
+    "base32": "0.0.6",
+    "calk": "0.0.1-security",
+    "chalk": "^4.1.2",
+    "cheerio": "^1.0.0-rc.10",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-clean": "^0.4.0",
+    "gulp-install": "^1.1.0",
+    "gulp-open": "^3.0.1",
+    "gulp-sass": "^5.0.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "lodash": "^4.17.21",
+    "moment": "^2.29.1",
+    "mongodb": "^4.1.0",
+    "monk": "^7.3.4",
+    "morgan": "^1.10.0",
+    "needle": "^2.8.0",
+    "node-fetch": "^2.6.1",
+    "request": "^2.88.2",
+    "scrape-yt": "^1.4.8",
+    "simsimi": "^3.0.0",
+    "ssl-express-www": "^3.0.8",
+    "tiktok-scraper": "^1.4.12",
+    "urlencode": "^1.1.0",
+    "ytdl-core": "^4.9.1",
+    "ytpl": "^2.2.3"
+  }
+}
