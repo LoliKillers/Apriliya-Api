@@ -4,7 +4,6 @@
 <p align="center">
 <a href="https://www.codacy.com/gh/LoliKillers/Arnz-Api/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=LoliKillers/Arnz-Api&amp;utm_campaign=Badge_Grade" alt="Codacy Badge">
 <img src="https://app.codacy.com/project/badge/Grade/972e73015aaa4096bf109a79acae8afb" /> </a>
-<a href="https://github.com/LoliKillers/Arnz-Api" alt="Libraries.io dependency status for GitHub repo"> <img src="https://img.shields.io/librariesio/github/LoliKillers/Arnz-Api?style=flat&logo=github&color=red" /> </a>
 <a href="http://hits.dwyl.com/LoliKillers/Arnz-Api" alt="HitCount"> <img src="http://hits.dwyl.com/LoliKillers/Arnz-Api.svg" /> </a>
 <a href="https://github.com/LoliKillers/Arnz-Api/network/members" alt="GitHub stars"> <img src="https://img.shields.io/github/stars/LoliKillers/Arnz-Api?style=flat&logo=github&color=yellow" /> </a>
 <a href="https://github.com/LoliKillers/Arnz-Api/network/members" alt="GitHub forks"> <img src="https://img.shields.io/github/forks/LoliKillers/Arnz-Api" /> </a>
