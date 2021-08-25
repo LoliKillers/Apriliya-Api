@@ -11,6 +11,7 @@ var lolkill = db.get("lolkill");
 var creatorList = ['Ari','Ari susanto','Lolkill','LoliKillers','ARNZ TEAM'];
 var creator = creatorList[Math.floor(Math.random() * creatorList.length)];
 
+keyapi = 'LoliKillers'
 
 var ytdl = require('ytdl-core');
 var ytpl = require('ytpl');
@@ -79,11 +80,11 @@ loghandler = {
         code: 406,
         message: 'masukan parameter nabi'
     },
-    nottext3: {
+    notquery: {
         status: false,
         creator: `${creator}`,
         code: 406,
-        message: 'masukan parameter text3'
+        message: 'masukan parameter pertanyaan'
     },
     nottheme: {
         status: false,
@@ -160,7 +161,69 @@ var len = 15
  	ap = await lolkill.findOne({apikey:api})
  return ap;
  }
+ 
+ router.get('/addapikey', (req, res, next) => {
+    var apikey = req.query.apikey,
+        apikeyInput  = req.query.apikeyInput,
+        email = req.query.email;
+
+    if (!apikey) return res.json(loghandler.notparam)
+    if (!(apikeyInput && email)) return res.json(loghandler.notAddApiKey)
+    if (apikey != `${keyapi}`) return res.json(loghandler.invalidKey)
+
+    try {
+        lolkill.insert({
+            apikey: apikeyInput,
+            email: email
+        })
+        .then(() => {
+              res.json({
+                  status: true,
+                  creator: `${creator}`,
+                  result: 'berhasil menambah data, status : ' + status + ', apikey : ' + apikeyInput + ', email : ' + email + ', nomor_hp : ' + nomorhp + ', name :  ' + name + ', age : ' + age + ', country : ' + country + ', exp : ' + exp
+              })
+        })
+    } catch (e) {
+        console.log(e)
+        res.json(loghandler.error)
+    }
+})
+
+router.get('/cekapikey', async (req, res, next) => {
+	var apikeyInput = req.query.apikey
+	if(!apikeyInput) return res.json(loghandler.notparam)
+	a = await cekApiKey(apikeyInput)
+	if (a) {
+	json = JSON.stringify({
+		status: true,
+		creator: creator,
+		result: {
+            status:a.status,
+			id: a._id,
+			apikey: a.apikey,
+			more_info: {
+				email: a.email,
+				nomor_hp: a.nomor_hp,
+				name: a.name,
+				age: a.age,
+				country: a.country,
+				exp:a.exp,
+			},
+		},
+		message: `jangan lupa follow ${creator}`
+	})
+} else {
+	json = JSON.stringify({
+		status: false
+	})
+}
+res.send(JSON.parse(json))
+})
+
 router.get('/find', async (req, res, next) => {
+	    var apikey = req.query.apikey
+    if (!apikey) return res.json(loghandler.notparam)
+    if (apikey != `${keyapi}`) return res.sendFile(__path + '/api/404.html')
     try {
         lolkill.find()
             .then(result => {
@@ -176,10 +239,108 @@ router.get('/find', async (req, res, next) => {
     }
 })
 
-router.get('/downloader/jooxsearch', async (req, res, next) => {
+router.get('/anime/random', async (req, res, next) => {
+var apikey = req.query.apikey
+
+    if (!apikey) return res.json(loghandler.notparam)
+    if (apikey != `${keyapi}`) return res.sendFile(__path + '/docs/404.html')
+       fetch(encodeURI(`https://arnz-api-production.up.railway.app/api/anime/random`))
+        .then(response => response.json())
+        .then(data => {
+        var data = data;
+             res.json({
+             	message: `Ok`,
+             	status: `Success`,
+             	maintanied_by: `${creator}`,
+             	data
+             })
+         })
+         .catch(e => {
+         	res.json(loghandler.error)
+})
+})
+
+router.get('/simsimi', async (req, res, next) => {
+             var query = req.query.query;
+			 var apikey = req.query.apikey
+
+    if (!apikey) return res.json(loghandler.notparam)
+    if (apikey != `${keyapi}`) return res.sendFile(__path + '/docs/404.html')
+	if (!query) return res.json(loghandler.notquery)
+       fetch(encodeURI(`https://api.simsimi.net/v1/?text=${query}&lang=id&cf=true`))
+        .then(response => response.json())
+        .then(data => {
+        var data = data;
+             res.json({
+             	message: `Ok`,
+             	status: `Success`,
+             	maintanied_by: `${creator}`,
+             	result: {
+             		query: `${query}`,
+             		answer: `${data.messages[0].response}`
+             	},
+             	note: `Jangan di spam ya om, siminya, kasihan ntar nangis :(`
+             })
+         })
+         .catch(e => {
+         	res.json(loghandler.error)
+})
+})
+
+router.get('/anime/search', async (req, res, next) => {
              var search = req.query.search;
+             var apikey = req.query.apikey
    
 	if (!search) return res.json(loghandler.notsearch)
+	if (!apikey) return res.json(longhandler.notparam)
+	if (apikey != `${keyapi}`) return res.sendFile(__path + '/docs/404.html')
+	
+       fetch(encodeURI(`https://arnz-api-production.up.railway.app/api/anime/search?q=${search}`))
+        .then(response => response.json())
+        .then(data => {
+        var data = data;
+             res.json({
+             	message: `Ok`,
+             	status: `Success`,
+             	maintanied_by: `${creator}`,
+             	data
+             })
+         })
+         .catch(e => {
+         	res.json(loghandler.error)
+})
+})
+
+router.get('/github/stalk', async (req, res, next) => {
+             var username = req.query.username;
+             var apikey = req.query.apikey
+   
+	if (!username) return res.json(loghandler.notusername)
+	if (!apikey) return res.json(loghandler.notparam)
+	if (apikey != `${keyapi}`) return res.sendFile(__path + '/docs/404.html')
+       fetch(encodeURI(`https://arnz-api-production.up.railway.app/api/github/stalk?username=${username}`))
+        .then(response => response.json())
+        .then(data => {
+        var data = data;
+             res.json({
+             	message: `Ok`,
+             	status: `Success`,
+             	maintanied_by: `${creator}`,
+             	data
+             })
+         })
+         .catch(e => {
+         	res.json(loghandler.error)
+})
+})
+
+router.get('/downloader/jooxsearch', async (req, res, next) => {
+             var search = req.query.search;
+             var apikey = req.query.apikey
+   
+	if (!search) return res.json(loghandler.notsearch)
+	if (!search) return res.json(loghandler.notparam)
+	if (apikey != `${keyapi}`) return res.sendFile(__path + '/docs/404.html')
        fetch(encodeURI(`https://arnz-api-production.up.railway.app/api/joox/search?q=${search}`))
         .then(response => response.json())
         .then(data => {
@@ -198,8 +359,11 @@ router.get('/downloader/jooxsearch', async (req, res, next) => {
 
 router.get('/other/dnslookup', async (req, res, next) => {
              var url = req.query.url;
+             var apikey = req.query.apikey
    
 	if (!url) return res.json(loghandler.noturl)
+	if (!apikey) return res.json(loghandler.notparam)
+	if (apikey != `${keyapi}`) return res.sendFile(__path + '/docs/404.html')
        fetch(encodeURI(`https://arnz-api-production.up.railway.app/api/dns/lookup?domain=${url}`))
         .then(response => response.json())
         .then(data => {
@@ -217,7 +381,10 @@ router.get('/other/dnslookup', async (req, res, next) => {
 })
 
 router.get('/game/caklontong', async (req, res, next) => {
+	var apikey = req.query.apikey
 	
+	if (!apikey) return res.json(loghandler.notparam)
+	if (apikey != `${keyapi}`) return res.sendFile(__path + '/docs/404.html')
        fetch(encodeURI(`https://raw.githubusercontent.com/LoliKillers/Arnz-Database/master/game/caklontong.json`))
         .then(response => response.json())
         .then(data => {
@@ -236,8 +403,11 @@ router.get('/game/caklontong', async (req, res, next) => {
 
 router.get('/samehadaku/genre', async (req, res, next) => {
              var search = req.query.search;
+             var apikey = req.query.apikey
    
 	if (!search) return res.json(loghandler.notsearch)
+	if (!search) return res.json(loghandler.notparam)
+	if (apikey != `${keyapi}`) return res.sendFile(__path + '/docs/404.html')
        fetch(encodeURI(`https://arnz-samehadaku.herokuapp.com/genre/${search}`))
         .then(response => response.json())
         .then(data => {
@@ -256,9 +426,12 @@ router.get('/samehadaku/genre', async (req, res, next) => {
 
 router.get('/samehadaku/page', async (req, res, next) => {
              var page = req.query.page;
+             var apikey = req.query.apikey
    
 	if (!page) return res.json(loghandler.notpage)
 	if (isNaN(page)) return res.json(loghandler.notpage)
+	if (!apikey) return res.json(loghandler.notparam)
+	if (apikey != `${keyapi}`) return res.sendFile(__path + '/docs/404.html')
        fetch(encodeURI(`https://arnz-samehadaku.herokuapp.com/page/${page}`))
         .then(response => response.json())
         .then(data => {
@@ -277,8 +450,11 @@ router.get('/samehadaku/page', async (req, res, next) => {
 
 router.get('/samehadaku/anime', async (req, res, next) => {
              var search = req.query.search;
+             var apikey = req.query.apikey
    
 	if (!search) return res.json(loghandler.notsearch)
+	if (!apikey) return res.json(loghandler.notparam)
+	if (apikey != `${keyapi}`) return res.sendFile(__path + '/docs/404.html')
        fetch(encodeURI(`https://arnz-samehadaku.herokuapp.com/anime/${search}`))
         .then(response => response.json())
         .then(data => {
@@ -296,7 +472,10 @@ router.get('/samehadaku/anime', async (req, res, next) => {
 })
 
 router.get('/samehadaku/season', async (req, res, next) => {
+	var apikey = req.query.apikey
 
+		if (!apikey) return res.json(loghendler.notparam)
+		if (apikey != `${keyapi}`) return res.sendFile(__path + '/docs/404.html')
        fetch(encodeURI(`https://arnz-samehadaku.herokuapp.com/season`))
         .then(response => response.json())
         .then(data => {
@@ -315,8 +494,11 @@ router.get('/samehadaku/season', async (req, res, next) => {
 
 router.get('/pinterest/stalk', async (req, res, next) => {
              var username = req.query.username;
+             var apikey = req.query.apikey
    
 	if (!username) return res.json(loghandler.notusername)
+	if (!apikey) return res.jsom(loghandler.notparam)
+	if (apikey != `${keyapi}`) return res.sendFile(__path + '/docs/404.html')
        fetch(encodeURI(`https://api.pinterest.com/v3/pidgets/users/${username}/pins/`))
         .then(response => response.json())
         .then(data => {
@@ -344,8 +526,11 @@ router.get('/pinterest/stalk', async (req, res, next) => {
 
 router.get('/photooxy/petterns', async (req, res, next) => {
              var text = req.query.text;
+             var apikey = req.query.apikey
    
 	if (!text) return res.json(loghandler.nottext)
+	if (!apikey) return res.json(loghandler.notparam)
+	if (apikey != `${keyapi}`) return res.sendFile(__path + '/docs/404.html')
 
             try {
             request.post({
