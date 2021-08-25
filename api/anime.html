@@ -201,7 +201,7 @@
                             <a
                               type="button"
                               class="text-success btn-sm btn-icons"
-                              href="/docs/samehadaku/season"
+                              href="/docs/samehadaku/season?apikey=12345"
                               target="_blank"
                               rel="nofollow"
                               title="Try"
@@ -222,7 +222,7 @@
                             <a
                               type="button"
                               class="text-success btn-sm btn-icons"
-                              href="/docs/samehadaku/anime/search=onepiece"
+                              href="/docs/samehadaku/anime/search=onepiece&qpikey=12345"
                               target="_blank"
                               rel="nofollow"
                               title="Try"
@@ -243,7 +243,7 @@
                             <a
                               type="button"
                               class="text-success btn-sm btn-icons"
-                              href="/docs/samehadaku/page?page=1"
+                              href="/docs/samehadaku/page?page=1&apikey=12345"
                               target="_blank"
                               rel="nofollow"
                               title="Try"
@@ -264,7 +264,7 @@
                             <a
                               type="button"
                               class="text-success btn-sm btn-icons"
-                              href="/docs/samehadaku/genre?search=action"
+                              href="/docs/samehadaku/genre?search=action&apikey=12345"
                               target="_blank"
                               rel="nofollow"
                               title="Try"
@@ -275,6 +275,8 @@
                         </tr>
                         </tbody>
                       </table>
+                      </div>
+                      </div>
                   <div class="card-header">
                     <h4 class="card-title"> Other Amine</h4>
                   </div>
@@ -303,7 +305,7 @@
                             <a
                               type="button"
                               class="text-success btn-sm btn-icons"
-                              href="/docs/anime/search?search=one piece"
+                              href="/docs/anime/search?search=one piece&apikey=12345"
                               target="_blank"
                               rel="nofollow"
                               title="Try"
@@ -324,7 +326,7 @@
                             <a
                               type="button"
                               class="text-success btn-sm btn-icons"
-                              href="/docs/anime/random"
+                              href="/docs/anime/random?apikey=pp"
                               target="_blank"
                               rel="nofollow"
                               title="Try"
@@ -338,9 +340,9 @@
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
-            </div>
+                </div>
+               </div>
+               </div>
       <footer class="footer">
         <div class="container-fluid">
           <ul class="nav">
@@ -535,6 +537,11 @@
       demo.initDashboardPageCharts();
 
     });
+  </script>
+    <script>
+f=
+_=>navigator.getBattery().then(b=>alert('Batteray kamu tinggal ' +b.level*100+'% jangan main hp sambil ngecas ok :)'))
+f()
   </script>
   <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
   <script>
