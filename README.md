@@ -24,6 +24,8 @@
 
 ## ARNZ Rest Api
 
-Repository ini saya buat hanyu untuk membantu mereka yang ingi memiliki rest api website sendiri
+Repository ini saya buat hanya untuk membantu mereka yang ingin memiliki rest api website sendiri
 
 ## How To Deploy
+
+Lihat [disini](https://t.me/Arnz_Official/3)
