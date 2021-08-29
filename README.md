@@ -26,7 +26,12 @@
 
 Repository ini saya buat hanya untuk membantu mereka yang ingin memiliki rest api website sendiri
 
-## How To Deploy
+## How To Self Host
+```bash
+
+```
+
+## How To Deploy Heroku
 
 Lihat [disini](https://t.me/Arnz_Official/4)
 
