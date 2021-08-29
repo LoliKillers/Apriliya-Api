@@ -29,3 +29,8 @@ Repository ini saya buat hanya untuk membantu mereka yang ingin memiliki rest ap
 ## How To Deploy
 
 Lihat [disini](https://t.me/Arnz_Official/4)
+
+
+## Note
+- Project ini open source
+- Tidak untuk di perjual belikan
