@@ -1,6 +1,6 @@
 
 ![APRILIYA-API](https://telegra.ph/file/c793578cfabf67d292dd0.png)
-# APRILIYA - AAPI's
+# APRILIYA - API's
 <p align="center">
 <a href="https://github.com/LoliKillers/Apriliya-Api/network/members" alt="GitHub stars"> <img src="https://img.shields.io/github/stars/LoliKillers/Apriliya-Api?style=flat&logo=github&color=yellow" /> </a>
 <a href="https://github.com/LoliKillers/Apriliya-Api/network/members" alt="GitHub forks"> <img src="https://img.shields.io/github/forks/LoliKillers/Apriliya-Api" /> </a>
