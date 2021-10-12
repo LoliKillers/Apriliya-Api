@@ -1,0 +1,293 @@
+<!--
+=========================================================
+* httpa://badai-api.herokuapp.com
+=========================================================
+
+Coded by github.com/LoliKillers
+
+=========================================================-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8" />
+<link rel="apple-touch-icon" sizes="76x76" href="../../img//apple-icon.png">
+<link rel="icon" type="image/png" href="../../img//favicon.png">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<title>
+Badai Api - Free Rest Api Website
+</title>
+<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+<link href="../../css/bootstrap.min.css" rel="stylesheet" />
+<link href="../../css/paper-dashboard.css?v=2.1.1" rel="stylesheet" />
+<link href="../../demo/demo.css" rel="stylesheet" />
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<style>
+#mylink{
+  font-size: 25px;
+}
+</style>
+</head>
+
+<body class="register-page">
+<nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
+<div class="container">
+<div class="navbar-wrapper">
+<div class="navbar-toggle">
+<button type="button" class="navbar-toggler">
+<span class="navbar-toggler-bar bar1"></span>
+<span class="navbar-toggler-bar bar2"></span>
+<span class="navbar-toggler-bar bar3"></span>
+</button>
+</div>
+<script>
+function alertt() {
+  const swalWithBootstrapButtons = Swal.mixin({
+    customClass: {
+      confirmButton: 'btn btn-success',
+      cancelButton: 'btn btn-danger'
+    },
+    buttonsStyling: false
+})
+
+swalWithBootstrapButtons.fire({
+  title: 'Hallo',
+  text: "I love you, do you love me",
+  icon: 'warning',
+  showCancelButton: true,
+  confirmButtonText: 'Yes',
+  cancelButtonText: 'No!',
+  reverseButtons: true
+}).then((result) => {
+  if (result.isConfirmed) {
+    swalWithBootstrapButtons.fire(
+      'Yey!',
+      'Silahkan register untuk medapatkan apikey.',
+      'success'
+    )
+  } else if (
+       result.dismiss === Swal.DismissReason.cancel
+  ) {
+    swalWithBootstrapButtons.fire(
+      'Anjing',
+      'Lu ga Gua Kasih Apikey :)',
+      'error'
+    )
+  }
+})
+}
+</script>
+<a class="navbar-brand" href="javascript:alertt();">Loli Killers</a>
+</div>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+<span class="navbar-toggler-bar navbar-kebab"></span>
+<span class="navbar-toggler-bar navbar-kebab"></span>
+<span class="navbar-toggler-bar navbar-kebab"></span>
+</button>
+<div class="collapse navbar-collapse justify-content-end" id="navigation">
+<ul class="navbar-nav">
+<li class="nav-item">
+<a href="/docs" class="nav-link">
+<i class="nc-icon nc-layout-11"></i>
+Dashboard
+</a>
+</li>
+<li class="nav-item ">
+<a href="/login" class="nav-link">
+<i class="nc-icon nc-tap-01"></i>
+Login
+</a>
+</li>
+<li class="nav-item ">
+<a href="/lock" class="nav-link">
+<i class="nc-icon nc-key-25"></i>
+Lock
+</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<div class="wrapper wrapper-full-page ">
+<div class="full-page register-page section-image" filter-color="black" data-image="../../img/bg/loli-killers.jpg">
+<div class="content">
+<div class="container">
+<div class="row">
+<div class="col-lg-5 col-md-5 ml-auto">
+<div class="info-area info-horizontal">
+<div class="icon icon-info">
+<i class="nc-icon nc-atom"></i>
+</div>
+<div class="description">
+<h5 class="info-title">Badai Api</h5>
+<p class="description">
+There is also a Fully Customizable CMS Rest api for this product.
+</p>
+</div>
+</div>
+</div>
+<div class="col-lg-4 col-md-6 mr-auto">
+<div class="card card-signup text-center">
+<div class="card-header ">
+<h4 class="card-title">Register</h4>
+<div class="social">
+<button class="btn btn-icon btn-round btn-twitter">
+<i class="fa fa-twitter"></i>
+</button>
+<button class="btn btn-icon btn-round btn-dribbble">
+<i class="fa fa-github"></i>
+</button>
+<button class="btn btn-icon btn-round btn-facebook">
+<i class="fa fa-facebook-f"></i>
+</button>
+<p class="card-description"> or be classical </p>
+</div>
+</div>
+<div class="card-body ">
+<form class="form" method="POST" action="/register">
+<div class="input-group">
+<div class="input-group-prepend">
+<span class="input-group-text">
+<i class="nc-icon nc-single-02"></i>
+</span>
+</div>
+<input type="text" class="form-control" id="username" name="username" placeholder="Username" required>
+</div>
+<div class="input-group">
+<div class="input-group-prepend">
+<span class="input-group-text">
+<i class="nc-icon nc-email-85"></i>
+</span>
+</div>
+<input type="email" id="email" name="email" placeholder="Email" class="form-control" required>
+</div>
+<div class="input-group">
+<div class="input-group-prepend">
+<span class="input-group-text">
+<i class="nc-icon nc-key-25"></i>
+</span>
+</div>
+<input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+</div>
+<div class="form-check text-left">
+<label class="form-check-label">
+<input class="form-check-input" type="checkbox" checked>
+<span class="form-check-sign"></span>
+I agree to the <a href="#something">terms and conditions</a>.
+</label>
+</div>
+</div>
+<div class="card-footer ">
+<button type="submit" id="loading" class="btn btn-info bt-user btn-round">Get Started</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+<footer class="footer footer-black  footer-white ">
+<div class="container-fluid">
+<div class="row">
+<nav class="footer-nav">
+<ul>
+<li><a href="https://github.com/LoliKillers" target="_blank">Github</a></li>
+<li><a href="https://instagram.com/ariasu.xyz" target="_blank">Instagram</a></li>
+<li><a href="https://wa.me/6285785445412" target="_blank">Whatsapp</a></li>
+</ul>
+</nav>
+<div class="credits ml-auto">
+<span class="copyright">
+© <script>
+document.write(new Date().toLocaleDateString())
+</script>, made with <i class="fa fa-heart heart text-danger text-gradient"></i> by Loli Killers
+</span>
+</div>
+</div>
+</div>
+</footer>
+</div>
+</div>
+<script src="../../js/core/jquery.min.js"></script>
+<script src="../../js/core/popper.min.js"></script>
+<script src="../../js/core/bootstrap.min.js"></script>
+<script src="../../js/plugins/perfect-scrollbar.jquery.min.js"></script>
+<script src="../../js/plugins/moment.min.js"></script>
+<script src="../../js/plugins/bootstrap-switch.js"></script>
+<script src="../../js/plugins/sweetalert2.min.js"></script>
+<script src="../../js/plugins/jquery.validate.min.js"></script>
+<script src="../../js/plugins/jquery.bootstrap-wizard.js"></script>
+<script src="../../js/plugins/bootstrap-selectpicker.js"></script>
+<script src="../../js/plugins/bootstrap-datetimepicker.js"></script>
+<script src="../../js/plugins/jquery.dataTables.min.js"></script>
+<script src="../../js/plugins/bootstrap-tagsinput.js"></script>
+<script src="../../js/plugins/jasny-bootstrap.min.js"></script>
+<script src="../../js/plugins/fullcalendar/fullcalendar.min.js"></script>
+<script src="../../js/plugins/fullcalendar/daygrid.min.js"></script>
+<script src="../../js/plugins/fullcalendar/timegrid.min.js"></script>
+<script src="../../js/plugins/fullcalendar/interaction.min.js"></script>
+<script src="../../js/plugins/jquery-jvectormap.js"></script>
+<script src="../../js/plugins/nouislider.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+<script src="../../js/plugins/chartjs.min.js"></script>
+<script src="../../js/plugins/bootstrap-notify.js"></script>
+<script src="../../js/paper-dashboard.min.js?v=2.1.1" type="text/javascript"></script><!-- Paper Dashboard DEMO methods, don't include it in your project! -->
+<script src="../../demo/demo.js"></script>
+<script type="text/javascript">
+$(document).ready(function () {
+  $("#myform").submit(function (e) {
+    var formObj = $(this);
+    var formURL = formObj.attr("action");
+    var formData = new FormData(this);
+    
+    $.ajax({
+      url: formURL,
+      type: "POST",
+      data: formData,
+      contentType: false,
+      cache: false,
+      processData: false,
+      beforeSend: function () {
+        $("button").attr("disabled", "disabled");
+        $("input").attr("disabled", "disabled");
+        $("a").attr("disabled", "disabled");
+        $("#loading").html(
+          '<i class="fas fa-spinner fa-spin"></i> Loading...'
+          );
+      },
+      success: function (data, textStatus, jqXHR) {
+        if (
+          data ==
+          "Successfully registered. Please check your whatsapp to verified account!" ||
+          data ==
+          "Successfully registered. Please check your email to verified account!"
+          ) {
+            alert(data);
+            window.location = "/login";
+          } else {
+            $("button").removeAttr("disabled", "disabled");
+            $("a").removeAttr("disabled", "disabled");
+            $("input").removeAttr("disabled", "disabled");
+            $("#loading").html("Register Account");
+            alert(data);
+            $('.form-control-user[type="password"]').val(
+              ""
+              );
+              grecaptcha.reset(0);
+          }
+      },
+    });
+    e.preventDefault();
+  });
+});
+</script>
+<script>
+$(document).ready(function() {
+  demo.checkFullPageBackgroundImage();
+});
+</script>
+</body>
+
+</html>

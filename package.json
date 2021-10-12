@@ -1,0 +1,37 @@
+{
+  "name": "apriliya-api",
+  "version": "1.2.0",
+  "description": "Apasi anjing bacot mulu",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LoliKillers/Apriliya-Api.git"
+  },
+  "keywords": [
+    "RestApi"
+  ],
+  "author": "Loli Killers",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LoliKillers/Apriliya-Api/issues"
+  },
+  "homepage": "https://github.com/LoliKillers/Apriliya-Api#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "console-error": "0.0.4",
+    "console-info": "0.0.5",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-rate-limit": "^5.4.1",
+    "nodemailer": "^6.7.0",
+    "nodemon": "^2.0.13",
+    "serve-favicon": "^2.5.0",
+    "ssl-express-www": "^3.0.8",
+    "sweetalert": "^2.1.2",
+    "sweetalert2": "^11.1.7"
+  }
+}
