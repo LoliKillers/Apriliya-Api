@@ -39,3 +39,5 @@ Lihat [disini](https://t.me/Arnz_Official/4)
 ## Note
 - Project ini open source
 - Tidak untuk di perjual belikan
+
+* Jika kalian ingin saya update repo ini silahkan open pull request!!!
