@@ -4,14 +4,14 @@ const bodyParser = require("body-parser");
 const axios = require("axios");
 const cheerio = require("cheerio");
 const needle = require("needle");
-/*const fetch = (...args) => import('node-fetch').then(({
+const fetch = (...args) => import('node-fetch').then(({
     default: fetch
-    }) => fetch(...args));*/
+}) => fetch(...args));
 const fs = require("fs");
 const request = require("request");
 
 const listkey = ['demo']
-const keyloli = 'Indun'
+const keyloli = 'akJgei72hwkpahwhw' //Silahkan dapatkan apikey di https://api.loli.loveslife.biz
 
 Path = process.cwd()
 
@@ -215,5 +215,95 @@ router.get('/tiktok_downloader', async (req, res, next) => {
 })
 
 //==========[ END DOWNLOADER  ]==========//
+//==========[ GAME KUIS  ]==========//
+
+router.get('/cak_lontong', async (req, res, next) => {
+    const apikey = req.query.apikey
+    try {
+        if (listkey.includes(apikey)) {
+            const data = await fetchJson(`https://api.loli.loveslife.biz/api/cak_lontong?apikey=${keyloli}`)
+            res.json({
+                statusCode: res.statusCode,
+                watashi: `@ariasu.xyz`,
+                date: new Date(),
+                results: data.data
+            })
+        } else {
+            res.json(msg.noApikey)
+        }
+    } catch (e) {
+        console.log(e)
+        res.json(msg.error)
+    }
+})
+
+//==========[ END GAME KUIS  ]==========//
+//==========[ INFO  ]==========//
+
+router.get('/covid_id', async (req, res, next) => {
+    const apikey = req.query.apikey
+    try {
+        if (listkey.includes(apikey)) {
+            const data = await fetchJson(`https://api.loli.loveslife.biz/api/covid_id?apikey=${keyloli}`)
+            res.json({
+                statusCode: res.statusCode,
+                watashi: `@ariasu.xyz`,
+                date: new Date(),
+                results: data.result
+            })
+        } else {
+            res.json(msg.noApikey)
+        }
+    } catch (e) {
+        console.log(e)
+        res.json(msg.error)
+    }
+})
+
+//==========[ END INFO  ]==========//
+//==========[ OTHER  ]==========//
+
+router.get('/jadwal_bioskop', async (req, res, next) => {
+    const apikey = req.query.apikey
+    try {
+        if (listkey.includes(apikey)) {
+            const data = await fetchJson(`https://api.loli.loveslife.biz/api/jadwal_bioskop?apikey=${keyloli}`)
+            res.json({
+                statusCode: res.statusCode,
+                watashi: `@ariasu.xyz`,
+                date: new Date(),
+                results: data.result
+            })
+        } else {
+            res.json(msg.noApikey)
+        }
+    } catch (e) {
+        console.log(e)
+        res.json(msg.error)
+    }
+})
+
+//==========[ END OTHER  ]==========//
+//==========[ ANIME  ]==========//
+
+router.get('/anime_nekos', async (req, res, next) => {
+    const apikey = req.query.apikey
+    try {
+        if (listkey.includes(apikey)) {
+            const hasil = `https://api.loli.loveslife.biz/api/anime_neko?apikey=${keyloli}`
+            data = await fetch(hasil).then(v => v.buffer())
+            await fs.writeFileSync(Path + '/tmp/nekos.png', data)
+            res.sendFile(Path + '/tmp/nekos.png')
+
+        } else {
+            res.send(msg.noApikey)
+        }
+    } catch (e) {
+        console.log(e)
+        res.json(msg.error)
+    }
+})
+
+//==========[ END ANIME  ]==========//
 
 module.exports = router
