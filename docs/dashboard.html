@@ -250,19 +250,19 @@ Profile
 <div class="card-header">
 <h3 class="card-title"><i class="tim-icons icon-key-25" aria-hidden="true"></i> Apikey Check</h3>
 </div>
+<form method="GET" action="/docs/cekapikey">
 <div class="card-body text-sm-left font-weight-bold">
-<p class="status" style="color: white; font-size: 20px;"></p>
-<h2 class="warn" style="color: red"></h2>
 <label for="URL">Enter Your ApiKey:</label>
-<input type="text" class="form-control" id="responapikeymucoooookkk" placeholder="apikey" name="apiKey" required="">
+<input type="text" class="form-control" placeholder="apikey" name="apiKey" required="">
 <small id="textHelp" class="font">Gapunya Apikey om? Contact me on
 <a href="https://wa.me/6285852203076">
 Whatsapp
 </a>
 </small>
 </br></br>
-<button type="submit" id="diklikcok" class="btn btn-success" onclick="sendata()">Submit</button>
+<button type="submit" class="btn btn-success" onclick="sendata()">Submit</button>
 </div>
+</form>
 </div>
 </div>
 </div>
@@ -425,26 +425,16 @@ document.write(new Date().getFullYear())
 </ul>
 </div>
 </div>
-<script>
-f=
-_=>navigator.getBattery().then(b=>alert('Dibilangin batray kamu tinggal ' +b.level*100+'%, batu amat ini orang :('))
-f()
-</script>
-<!-- Core JS Files -->
 <script src="../js/core/jquery.min.js"></script>
 <script src="../js/core/popper.min.js"></script>
 <script src="../js/core/bootstrap.min.js"></script>
 <script src="../js/plugins/perfect-scrollbar.jquery.min.js"></script>
 <script src="../js/plugins/apikey.js"></script>
 <script src="../js/plugins/jamsalam.js"></script>
- <!-- Place this tag in your head or just before your close body tag. -->
 <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
-<!-- Chart JS -->
 <script src="../js/plugins/chartjs.min.js"></script>
-<!--Notifications Plugin-->
 <script src="../js/plugins/bootstrap-notify.js"></script>
-<!-- Control Center for Black Dashboard: parallax effects, scripts for the example pages etc -->
-<script src="../js/black-dashboard.min.js?v=1.0.0"></script><!-- Black Dashboard DEMO methods, don't include it in your project! -->
+<script src="../js/black-dashboard.min.js?v=1.0.0"></script>
 <script src="../demo/demo.js"></script>
 <script src="../js/ipanda.js"></script>
 <script>
