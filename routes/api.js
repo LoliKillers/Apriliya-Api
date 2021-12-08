@@ -11,8 +11,7 @@ const fs = require("fs");
 const request = require("request");
 
 const listkey = ['demo']
-//const keyloli = 'akJgei72hwkpahwhw' //Silahkan dapatkan apikey di https://api.loli.loveslife.biz
-const keyloli = 'Indun' //Silahkan dapatkan apikey di https://api.loli.loveslife.biz
+const keyloli = 'akJgei72hwkpahwhw' //Silahkan dapatkan apikey di https://api.loli.loveslife.biz
 
 Path = process.cwd()
 
@@ -202,48 +201,126 @@ router.get('/tiktok_downloader', async (req, res, next) => {
     const apikey = req.query.apikey,
     url = req.query.url
     if (!url) return res.send(msg.noUrl)
-    if (listkey.includes(apikey)) {
-        const data = await fetchJson(`https://api.loli.loveslife.biz/api/tiktok_downloader?apikey=${keyloli}&url=${url}`)
-        res.json({
-            statusCode: res.statusCode,
-            watashi: `@ariasu.xyz`,
-            date: new Date(),
-            results: data.result
-        })
-    } else {
-        res.send(msg.noApikey)
+    try {
+        if (listkey.includes(apikey)) {
+            const data = await fetchJson(`https://api.loli.loveslife.biz/api/tiktok_downloader?apikey=${keyloli}&url=${url}`)
+            res.json({
+                statusCode: res.statusCode,
+                watashi: `@ariasu.xyz`,
+                date: new Date(),
+                results: data.result
+            })
+        } else {
+            res.send(msg.noApikey)
+        }
+    } catch (e) {
+        console.log(e)
+        res.json(msg.error)
     }
 })
 router.get('/youtubedl_mp3', async (req, res, next) => {
     const apikey = req.query.apikey,
     url = req.query.url
     if (!url) return res.send(msg.noUrl)
-    if (listkey.includes(apikey)) {
-        const data = await fetchJson(`https://api.loli.loveslife.biz/api/youtubedl_mp3?apikey=${keyloli}&url=${url}`)
-        res.json({
-            statusCode: res.statusCode,
-            watashi: `@ariasu.xyz`,
-            date: new Date(),
-            results: data.result
-        })
-    } else {
-        res.send(msg.noApikey)
+    try {
+        if (listkey.includes(apikey)) {
+            const data = await fetchJson(`https://api.loli.loveslife.biz/api/youtubedl_mp3?apikey=${keyloli}&url=${url}`)
+            res.json({
+                statusCode: res.statusCode,
+                watashi: `@ariasu.xyz`,
+                date: new Date(),
+                results: data.result
+            })
+        } else {
+            res.send(msg.noApikey)
+        }
+    } catch (e) {
+        console.log(e)
+        res.json(msg.error)
     }
 })
 router.get('/youtubedl_mp4', async (req, res, next) => {
     const apikey = req.query.apikey,
     url = req.query.url
     if (!url) return res.send(msg.noUrl)
-    if (listkey.includes(apikey)) {
-        const data = await fetchJson(`https://api.loli.loveslife.biz/api/youtubedl_mp4?apikey=${keyloli}&url=${url}`)
-        res.json({
-            statusCode: res.statusCode,
-            watashi: `@ariasu.xyz`,
-            date: new Date(),
-            results: data.result
-        })
-    } else {
-        res.send(msg.noApikey)
+    try {
+        if (listkey.includes(apikey)) {
+            const data = await fetchJson(`https://api.loli.loveslife.biz/api/youtubedl_mp4?apikey=${keyloli}&url=${url}`)
+            res.json({
+                statusCode: res.statusCode,
+                watashi: `@ariasu.xyz`,
+                date: new Date(),
+                results: data.result
+            })
+        } else {
+            res.send(msg.noApikey)
+        }
+    } catch (e) {
+        console.log(e)
+        res.json(msg.error)
+    }
+})
+router.get('/youtubedl_mp4', async (req, res, next) => {
+    const apikey = req.query.apikey,
+    url = req.query.url
+    if (!url) return res.send(msg.noUrl)
+    try {
+        if (listkey.includes(apikey)) {
+            const data = await fetchJson(`https://api.loli.loveslife.biz/api/youtubedl_mp4?apikey=${keyloli}&url=${url}`)
+            res.json({
+                statusCode: res.statusCode,
+                watashi: `@ariasu.xyz`,
+                date: new Date(),
+                results: data.result
+            })
+        } else {
+            res.send(msg.noApikey)
+        }
+    } catch (e) {
+        console.log(e)
+        res.json(msg.error)
+    }
+})
+router.get('/ytplay_mp3', async (req, res, next) => {
+    const apikey = req.query.apikey,
+    search = req.query.search
+    if (!search) return res.send(msg.noSearch)
+    try {
+        if (listkey.includes(apikey)) {
+            const data = await fetchJson(`https://api.loli.loveslife.biz/api/ytplay_mp3?apikey=${keyloli}&search=${search}`)
+            res.json({
+                statusCode: res.statusCode,
+                watashi: `@ariasu.xyz`,
+                date: new Date(),
+                results: data.result
+            })
+        } else {
+            res.send(msg.noApikey)
+        }
+    } catch (e) {
+        console.log(e)
+        res.json(msg.error)
+    }
+})
+router.get('/ytplay_mp4', async (req, res, next) => {
+    const apikey = req.query.apikey,
+    search = req.query.search
+    if (!search) return res.send(msg.noSearch)
+    try {
+        if (listkey.includes(apikey)) {
+            const data = await fetchJson(`https://api.loli.loveslife.biz/api/ytplay_mp4?apikey=${keyloli}&search=${search}`)
+            res.json({
+                statusCode: res.statusCode,
+                watashi: `@ariasu.xyz`,
+                date: new Date(),
+                results: data.result
+            })
+        } else {
+            res.send(msg.noApikey)
+        }
+    } catch (e) {
+        console.log(e)
+        res.json(msg.error)
     }
 })
 
