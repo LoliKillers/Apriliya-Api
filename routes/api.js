@@ -11,7 +11,7 @@ const fs = require("fs");
 const request = require("request");
 
 const listkey = ['demo']
-const keyloli = 'akJgei72hwkpahwhw' //Silahkan dapatkan apikey di https://api.loli.loveslife.biz
+const keyloli = 'ahKuahKakb729bs62' //Silahkan dapatkan apikey di https://api.loli.loveslife.biz
 
 Path = process.cwd()
 
@@ -314,6 +314,48 @@ router.get('/ytplay_mp4', async (req, res, next) => {
                 watashi: `@ariasu.xyz`,
                 date: new Date(),
                 results: data.result
+            })
+        } else {
+            res.send(msg.noApikey)
+        }
+    } catch (e) {
+        console.log(e)
+        res.json(msg.error)
+    }
+})
+router.get('/instagram_story', async (req, res, next) => {
+    const apikey = req.query.apikey,
+    username = req.query.username
+    if (!username) return res.send(msg.noUsername)
+    try {
+        if (listkey.includes(apikey)) {
+            const data = await fetchJson(`https://api.loli.loveslife.biz/api/instagram_story?apikey=${keyloli}&username=${username}`)
+            res.json({
+                statusCode: res.statusCode,
+                watashi: `@ariasu.xyz`,
+                date: new Date(),
+                results: data.data
+            })
+        } else {
+            res.send(msg.noApikey)
+        }
+    } catch (e) {
+        console.log(e)
+        res.json(msg.error)
+    }
+})
+router.get('/instagram_downloader', async (req, res, next) => {
+    const apikey = req.query.apikey,
+    url = req.query.url
+    if (!url) return res.send(msg.noUrl)
+    try {
+        if (listkey.includes(apikey)) {
+            const data = await fetchJson(`https://api.loli.loveslife.biz/api/instagram_downloader?apikey=${keyloli}&url=${url}`)
+            res.json({
+                statusCode: res.statusCode,
+                watashi: `@ariasu.xyz`,
+                date: new Date(),
+                results: data
             })
         } else {
             res.send(msg.noApikey)
