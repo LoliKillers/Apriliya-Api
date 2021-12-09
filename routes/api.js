@@ -11,8 +11,7 @@ const fs = require("fs");
 const request = require("request");
 
 const listkey = ['demo']
-const keyloli = 'ariasu' //Silahkan dapatkan apikey di https://api.loli.loveslife.biz
-//const keyloli = 'ahKuahKakb729bs62' //Silahkan dapatkan apikey di https://api.loli.loveslife.biz
+const keyloli = 'Indun' //Silahkan dapatkan apikey di https://api.loli.loveslife.biz
 
 Path = process.cwd()
 
