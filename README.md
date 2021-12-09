@@ -27,13 +27,22 @@
 Repository ini saya buat hanya untuk membantu mereka yang ingin memiliki rest api website sendiri
 
 ## How To Self Host
+Termux
 ```bash
-
+$ pkg update && pkg upgrade -y
+$ pkg install git -y
+$ pkg install nodejs -y
+$ git clone https://github.com/LoliKillers/Apriliya-Api
+$ cd Apriliya-Api
+$ npm install
+$ node index
 ```
+Silahkan buka alamat http://localhost:8080
 
 ## How To Deploy Heroku
 
-Lihat [disini](https://t.me/Arnz_Official/4)
+![heroku1](https://raw.githubusercontent.com/LoliKillers/LoliKillers-Database/master/heroku/heroku1.png)
+1. Silahkan buka dashboard heroku, dan pili new => Create new app
 
 
 ## Note
