@@ -11,7 +11,8 @@ const fs = require("fs");
 const request = require("request");
 
 const listkey = ['demo']
-const keyloli = 'ahKuahKakb729bs62' //Silahkan dapatkan apikey di https://api.loli.loveslife.biz
+const keyloli = 'Indun' //Silahkan dapatkan apikey di https://api.loli.loveslife.biz
+//const keyloli = 'ahKuahKakb729bs62' //Silahkan dapatkan apikey di https://api.loli.loveslife.biz
 
 Path = process.cwd()
 
@@ -420,6 +421,48 @@ router.get('/jadwal_bioskop', async (req, res, next) => {
     try {
         if (listkey.includes(apikey)) {
             const data = await fetchJson(`https://api.loli.loveslife.biz/api/jadwal_bioskop?apikey=${keyloli}`)
+            res.json({
+                statusCode: res.statusCode,
+                watashi: `@ariasu.xyz`,
+                date: new Date(),
+                results: data.result
+            })
+        } else {
+            res.json(msg.noApikey)
+        }
+    } catch (e) {
+        console.log(e)
+        res.json(msg.error)
+    }
+})
+router.get('/http_headers', async (req, res, next) => {
+    const apikey = req.query.apikey,
+    url = req.query.url
+    if (!url) return res.json(msg.noUrl)
+    try {
+        if (listkey.includes(apikey)) {
+            const data = await fetchJson(`https://api.loli.loveslife.biz/api/http_headers?apikey=${keyloli}&url=${url}`)
+            res.json({
+                statusCode: res.statusCode,
+                watashi: `@ariasu.xyz`,
+                date: new Date(),
+                results: data.result
+            })
+        } else {
+            res.json(msg.noApikey)
+        }
+    } catch (e) {
+        console.log(e)
+        res.json(msg.error)
+    }
+})
+router.get('/web_reader', async (req, res, next) => {
+    const apikey = req.query.apikey,
+    url = req.query.url
+    if (!url) return res.json(msg.noUrl)
+    try {
+        if (listkey.includes(apikey)) {
+            const data = await fetchJson(`https://api.loli.loveslife.biz/api/web_reader?apikey=${keyloli}&url=${url}`)
             res.json({
                 statusCode: res.statusCode,
                 watashi: `@ariasu.xyz`,
