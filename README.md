@@ -44,7 +44,8 @@ Silahkan buka alamat http://localhost:8080
 ![heroku1](https://raw.githubusercontent.com/LoliKillers/LoliKillers-Database/master/heroku/heroku1.png)
 1. Silahkan buka dashboard heroku, jikan belum memiliki akun silahkan registrasi terlebih dahulu, jika sudah silahkan buat app baru dengan cara Create new app
 
-
+![heroku2](https://raw.githubusercontent.com/LoliKillers/LoliKillers-Database/master/heroku/heroku2.png)
+2. Beri nama app anda (bebas ingin memberi nama apa), jika sudah memberi nama app, silahkan pilih Create app
 ## Note
 - Project ini open source
 - Tidak untuk di perjual belikan
