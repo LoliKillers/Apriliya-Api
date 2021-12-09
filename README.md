@@ -42,7 +42,7 @@ Silahkan buka alamat http://localhost:8080
 ## How To Deploy Heroku
 
 ![heroku1](https://raw.githubusercontent.com/LoliKillers/LoliKillers-Database/master/heroku/heroku1.png)
-1. Silahkan buka dashboard heroku, dan pili new => Create new app
+1. Silahkan buka dashboard heroku, jikan belum memiliki akun silahkan registrasi terlebih dahulu, jika sudah silahkan buat app baru dengan cara Create new app
 
 
 ## Note
