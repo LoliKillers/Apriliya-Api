@@ -1,11 +1,11 @@
-FROM buildkite/puppeeter:latest
+FROM debian
 
 RUN apt-get update
 RUN apt-get upgrade -y
 RUN apt-get install nodejs -y
+RUN npm install --global nodemon
 
 WORKDIR /app
 COPY . /app
 RUN npm install
-CMD ["npm", "start"]
-EXPOSE 8080
+CMD ["nodemon", "index"]
