@@ -11,7 +11,7 @@ const fs = require("fs");
 const request = require("request");
 
 const listkey = ['demo']
-const keyloli = 'Indun' //Silahkan dapatkan apikey di https://api.loli.loveslife.biz
+const keyloli = 'ariasu' //Silahkan dapatkan apikey di https://api.loli.loveslife.biz
 //const keyloli = 'ahKuahKakb729bs62' //Silahkan dapatkan apikey di https://api.loli.loveslife.biz
 
 Path = process.cwd()
@@ -366,6 +366,27 @@ router.get('/instagram_downloader', async (req, res, next) => {
         res.json(msg.error)
     }
 })
+router.get('/youtube_search', async (req, res, next) => {
+    const apikey = req.query.apikey,
+    search = req.query.search
+    if (!search) return res.send(msg.noSearch)
+    try {
+        if (listkey.includes(apikey)) {
+            const data = await fetchJson(`https://api.loli.loveslife.biz/api/youtube_search?apikey=${keyloli}&search=${search}`)
+            res.json({
+                statusCode: res.statusCode,
+                watashi: `@ariasu.xyz`,
+                date: new Date(),
+                results: data.result
+            })
+        } else {
+            res.send(msg.noApikey)
+        }
+    } catch (e) {
+        console.log(e)
+        res.json(msg.error)
+    }
+})
 
 //==========[ END DOWNLOADER  ]==========//
 //==========[ GAME KUIS  ]==========//
@@ -500,5 +521,30 @@ router.get('/anime_nekos', async (req, res, next) => {
 })
 
 //==========[ END ANIME  ]==========//
+//==========[ FUN  ]==========//
+
+router.get('/simsimi_id', async (req, res, next) => {
+    const apikey = req.query.apikey,
+    query = req.query.query
+    if(!query) return res.json(msg.noQuery)
+    try {
+        if (listkey.includes(apikey)) {
+            const data = await fetchJson(`https://api.loli.loveslife.biz/api/simsimi?apikey=${keyloli}&query=${query}&lc=id`)
+            res.json({
+                statusCode: res.statusCode,
+                watashi: `@ariasu.xyz`,
+                date: new Date(),
+                results: data.result
+            })
+        } else {
+            res.send(msg.noApikey)
+        }
+    } catch (e) {
+        console.log(e)
+        res.json(msg.error)
+    }
+})
+
+//==========[ END FUN  ]==========//
 
 module.exports = router
