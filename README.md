@@ -65,7 +65,7 @@ Silahkan buka alamat http://localhost:8080
 ![heroku6](https://raw.githubusercontent.com/LoliKillers/LoliKillers-Database/master/heroku/heroku6.png)
 
 
-7. Setelah connect, kalian scroll ke bawah, pilih branch mastet lalu pilih deploy branch
+7. Setelah connect, kalian scroll ke bawah, pilih branch master lalu pilih deploy branch
 ![heroku7](https://raw.githubusercontent.com/LoliKillers/LoliKillers-Database/master/heroku/heroku7.png)
 
 
@@ -73,7 +73,7 @@ Silahkan buka alamat http://localhost:8080
 ![heroku8](https://raw.githubusercontent.com/LoliKillers/LoliKillers-Database/master/heroku/heroku8.png)
 
 
-9. Jika proses deploy selesai silahkan pilih open app, atau anda bisa membuka laman https://nama-app-kamu.herokuapp.com
+9. Jika proses deploy selesai silahkan pilih views, atau anda bisa membuka laman https://nama-app-kamu.herokuapp.com
 ![heroku9](https://raw.githubusercontent.com/LoliKillers/LoliKillers-Database/master/heroku/heroku9.png)
 
 * Jika ada error/atau kendala jangan malu bertanya pada saya, kalian bisa menghubungi saya melalui [WhatsApp](https://wa.me/6285785445412) juga bisa melalui [Telegram](https://t.me/Loli_Killers) atau info lebih lanjut kalian bisa bergabung di [Group WhatsApp](https://chat.whatsapp.com/EFjLvHJbUGN3Rez0PpVun2)
@@ -82,4 +82,5 @@ Silahkan buka alamat http://localhost:8080
 - Project ini open source
 - Tidak untuk di perjual belikan
 
-* Jika kalian ingin saya update repo ini silahkan open pull request!!!
+* Repo ini masih tahap penyelesaian
+* Untuk mendapatkan keyloli silahkan register terlebih daulu di [Api Loli](https://api.loli.loveslife.biz/signup) setelah signup apikey akan di kirim melalui email yang kalian massukan saat signup
