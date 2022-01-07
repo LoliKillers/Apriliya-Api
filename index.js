@@ -1,7 +1,7 @@
 var express = require('express'),
     cors = require('cors'),
     secure = require('ssl-express-www');
-const PORT = process.env.PORT || 8080 || 5000 || 3000
+const PORT = process.env.PORT || 8080   // Jika RUN di Heroku pakai 8080, jika RUN di Windows/Linux pakai 3000/5000
 var { color } = require('./lib/color.js')
 
 var mainrouter = require('./routes/main'),
