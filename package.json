@@ -32,14 +32,24 @@
   "homepage": "https://github.com/LoliKillers/Apriliya-Api#readme",
   "dependencies": {
     "axios": "^0.24.0",
+    "base-64": "^1.0.0",
+    "base32": "0.0.6",
     "chalk": "^4.1.0",
     "cheerio": "^1.0.0-rc.10",
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "fs": "0.0.1-security",
+    "lodash": "^4.17.20",
+    "moment": "^2.29.1",
+    "mongodb": "^3.6.3",
+    "monk": "^7.3.3",
+    "morgan": "^1.10.0",
     "needle": "^3.0.0",
     "node-fetch": "^3.1.0",
+    "qs": "^6.10.1",
     "request": "^2.88.2",
     "rootpath": "^0.1.2",
+    "scrape-yt": "^1.4.8",
     "ssl-express-www": "^3.0.8"
   }
 }
