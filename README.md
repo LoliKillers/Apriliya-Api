@@ -29,3 +29,5 @@ Fitur baru?
 Template baru?
 
 Silahkan hubungi saya di [Telegram](https://t.me/Loli_Killers) hanya butuh 10 orang saja yang menghubungi saya, dan saya akan update repo ini sesuai permintaan
+
+Atau juga bisa pull request pull request 10 saja dan saya akan update
