@@ -10,3 +10,4 @@ WORKDIR /app
 COPY . /app
 RUN npm install
 CMD ["nodemon", "index"]
+EXPOSE 8080
