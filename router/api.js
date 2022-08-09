@@ -18,7 +18,7 @@ Thanks To :
 */
 
 require("rootpath")();
-require('settings');
+require('dotenv').config();
 const express = require('express');
 const router = express.Router();
 const app = express();
@@ -28,6 +28,9 @@ const xyz = require('xyzapi');
 const fs = require('fs-extra');
 const { cekKey, addRequest, isLimit, limitAdd } = require('mongo/functions');
 const { isUrl } = require('lib/functions');
+
+const coder = process.env.CODER_NAME;
+const dcApikey = process.env.DC_APIKEY;
 
 msg = {
   noApikey: {

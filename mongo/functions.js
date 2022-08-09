@@ -18,9 +18,12 @@ Thanks To :
 */
 
 require('rootpath')();
-require('settings');
+require('dotenv').config();
 const { User, Apidb } = require('mongo/schemadb');
 const toMs = require('ms');
+
+const limitCount = process.env.LIMIT_USER;
+const limitPremium = process.env.LIMIT_PREMIUM;
 
 module.exports.addUser = (username, hashedPassword, email, apikey) => {
   let obj = {

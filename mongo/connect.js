@@ -18,11 +18,11 @@ Thanks To :
 */
 
 require('rootpath')();
-require('settings');
+require('dotenv').config();
 const mongoose = require('mongoose');
 
 function connectMongoDb() {
-  mongoose.connect(dbURI, { 
+  mongoose.connect(process.env.DB_URI, { 
     useNewUrlParser: true, 
     useUnifiedTopology: true
   });

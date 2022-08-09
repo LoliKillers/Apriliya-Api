@@ -30,15 +30,19 @@ Sebelum melakukan apapun silahkan dapatkan
 
 Tanpa mereka berdua web API tidak akan berjalan
 
-letakkan semua itu di file settings.js
+buat file .env terlebih dahulu
+```shell
+mv example.env .env
+```
+letakkan semua itu di file .env
 
 ```javascript
-global.dbURI = 'URI_MONGODB_HERE'; //URI Database mongodb bisa kalian dapatkan di https://www.mogodb.com
-global.limitCount = 100; //Limit pengguna gratisan
-global.limitPremium = 1000; //Limit pengguna premium
-global.coder = 'Loli Killers'; //Entahlah mau di ganti apa tidak
-global.dcApikey = 'DC_APIKEY_HERE'; //Apikey DC, bisa kalian dapatkan gratis dengan cara registrasi di https://api.darkcoder.xyz 
-global.keys = "Loli"; //Kata kunci untuk menambahkan pengguna premium
+DB_URI = 'URI_MONGODB_HERE' //URI Database mongodb bisa kalian dapatkan di https://www.mogodb.com
+LIMIT_PREMIUM =  //Limit pengguna gratisan
+LIMIT_USER =  //Limit pengguna premium
+CODER_NAME = 'Loli Killers' //Entahlah mau di ganti apa tidak
+DC_APIKEY = '' //Apikey DC, bisa kalian dapatkan gratis dengan cara registrasi di https://api.darkcoder.xyz 
+KEY = '' //Kata kunci untuk menambahkan pengguna premium
 ```
 
 ## Linux

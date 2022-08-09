@@ -18,12 +18,14 @@ Thanks To :
 */
 
 require("rootpath")();
+require('dotenv').config();
 const express = require('express');
 const router = express.Router();
 const app = express();
 const expressLayout = require('express-ejs-layouts');
 const bodyParser = require('body-parser');
-
+const coder = process.env.CODER_NAME;
+const keys = process.env.KEY;
 const { fetchJson } = require('lib/functions');
 const { isAuthenticated, notAuthenticated } = require('lib/auth');
 const { User } = require('mongo/schemadb');
