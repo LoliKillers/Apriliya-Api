@@ -110,7 +110,7 @@ function assignId (req, res, next) {
 }
 
 if (!module.parent) {
-  app.listen(process.env.PORT || PORT, function(){
+  app.listen(process.env.PORT || 3000, function(){
     console.log(`Website berjalan di localhost:${PORT}`);
     schedule.scheduleJob('* * * * *', () => { 
       expiredPremium();
