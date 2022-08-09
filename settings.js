@@ -19,9 +19,9 @@ Thanks To :
 
 require('rootpath')();
 
-global.dbURI = ''; //URI Database mongodb bisa kalian dapatkan di https://www.mogodb.com
-global.limitCount = 100; //Limit pengguna gratisan
-global.limitPremium = 1000; //Limit pengguna premium
-global.coder = 'Loli Killers'; //Entahlah mau di ganti apa tidak
-global.dcApikey = 'nalUwhb928jab8'; //Apikey DC, bisa kalian dapatkan gratis dengan cara registrasi di https://api.darkcoder.xyz 
-global.keys = "Loli"; //Kata kunci untuk menambahkan pengguna premium
+global.dbURI = 'mongodb+srv://apiapriliya:apiapriliya@cluster0.8gzmm97.mongodb.net/?retryWrites=true&w=majority';
+global.limitCount = 100;
+global.limitPremium = 1000;
+global.coder = 'Loli Killers';
+global.dcApikey = 'PutriApriliya';
+global.keys = "Loli";
