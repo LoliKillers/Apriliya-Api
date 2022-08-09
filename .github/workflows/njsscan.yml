@@ -1,18 +1,21 @@
 name: nodejsscan
 on:
   push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+    branches:
+      - master
 jobs:
-  njsscan:
+  build:
     runs-on: ubuntu-latest
-    name: nodejsscan check
+    strategy:
+      matrix:
+        node-version: [10.x]
     steps:
-    - name: Checkout the code
-      uses: actions/checkout@v2
-    - name: nodejsscan scan
-      id: njsscan
-      uses: LoliKillers/Apriliya-Api@master
+    - uses: actions/checkout@v1
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
       with:
-        args: '.'
+        node-version: ${{ matrix.node-version }}
+    - name: Scan for Vulnerabilities
+      run: bash scan_for_vulnerabilities.sh
+
+To
