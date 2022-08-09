@@ -670,7 +670,7 @@ var DateTimePicker = function ($, moment) {
             keyState[currentKey] = pressed;
 
             for (index in keyState) {
-                if (keyState.hasOwnProperty(index) && keyState[index] === pressed) {
+                if (Object.prototype.hasOwnProperty.call(keyState, index) && keyState[index] === pressed) {
                     pressedKeys.push(index);
                     if (parseInt(index, 10) !== currentKey) {
                         pressedModifiers[index] = true;
