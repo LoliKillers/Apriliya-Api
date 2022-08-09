@@ -19,7 +19,7 @@ Thanks To :
 
 require('rootpath')();
 
-global.dbURI = 'mongodb+srv://username:password@cluster0.8gzmm97.mongodb.net/?retryWrites=true&w=majority';
+global.dbURI = 'mongodb+srv://<username>:<password>@cluster0.8gzmm97.mongodb.net/?retryWrites=true&w=majority';
 global.limitCount = 100;
 global.limitPremium = 1000;
 global.coder = 'Loli Killers';

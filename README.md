@@ -28,7 +28,7 @@ Sebelum melakukan apapun silahkan dapatkan
 * [Mongo DB URI](https://www.mongodb.com)
 * [DC Apikey](https://api.darkcoder.xyz)
 
-Tanpa merekan berdua web API tidak akan berjalan
+Tanpa mereka berdua web API tidak akan berjalan
 
 letakkan semua itu di file settings.js
 
@@ -60,7 +60,7 @@ cd Apriliya-Api
 npm install
 npm start
 ```
-
+Open : [http://localhost:8080](http://localhost:8080)
 ### Deploy in heroku
 
 ```shell
@@ -73,10 +73,12 @@ git add .
 git commit -m "Make It Butter"
 git push heroku master
 ```
-
+Open : [https://APP_NAME.herokuapp.com](https://APP_NAME.herokuapp.com)
+Demo : [https://april-api.herokuapp.com](https://april-api.herokuapp.com)
 ## What is next?
 
 * Jika masih bingung silahkan tanyakan kepada saya di [WhatsApp](https://chat.whatsapp.com/EH9g1SKf588HXEFY51zQMu)
 * Menemukan error? silahkan tarik permintaan, atau bisa beritahu saya di [WhatsApp](https://chat.whatsapp.com/EH9g1SKf588HXEFY51zQMu)
 * Request? silahkan hubungi saya di [WhatsApp](https://chat.whatsapp.com/EH9g1SKf588HXEFY51zQMu)
 * [api.darkcoder.xyz](https://api.darkcoder.xyz)
+* [xyzapi](https://npmjs.com/package/xyzapi)
