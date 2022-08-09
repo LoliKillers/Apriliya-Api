@@ -29,7 +29,7 @@ if ((version[0] <= 2 && version[1] < 17) || (version[0] >= 3)) {
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }());
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
@@ -38,7 +38,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 // ReSharper disable once InconsistentNaming
-var DateTimePicker = function ($, moment) {
+var DateTimePicker = (function ($, moment) {
     // ReSharper disable InconsistentNaming
     var NAME = 'datetimepicker',
         DATA_KEY = '' + NAME,
@@ -1574,11 +1574,11 @@ var DateTimePicker = function ($, moment) {
     }();
 
     return DateTimePicker;
-}(jQuery, moment);
+}(jQuery, moment));
 
 //noinspection JSUnusedGlobalSymbols
 /* global DateTimePicker */
-var TempusDominusBootstrap4 = function ($) {
+var TempusDominusBootstrap4 = (function ($) {
     // eslint-disable-line no-unused-vars
     // ReSharper disable once InconsistentNaming
     var JQUERY_NO_CONFLICT = $.fn[DateTimePicker.NAME],
@@ -2774,6 +2774,6 @@ var TempusDominusBootstrap4 = function ($) {
     };
 
     return TempusDominusBootstrap4;
-}(jQuery);
+}(jQuery));
 
 }());
