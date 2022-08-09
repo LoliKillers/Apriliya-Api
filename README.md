@@ -80,7 +80,7 @@ git push heroku master
 
 #### Or
 
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/LoliKillers/Apriliya-Api)
 
 Open : [https://APP_NAME.herokuapp.com](https://APP_NAME.herokuapp.com)
 Demo : [https://april-api.herokuapp.com](https://april-api.herokuapp.com)
