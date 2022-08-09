@@ -1,1 +1,1 @@
-worker: npm i -g nodemon && nodemon index.js
+web: npm i -g nodemon && nodemon index.js
