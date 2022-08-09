@@ -14,6 +14,7 @@ Thanks To :
 • Github
 • Heroku
 • Loli Killers
+• RimuruBotz
 • Dark Coder Team
 */
 
@@ -80,6 +81,63 @@ msg = {
     coder: coder,
     error: {
       message: 'Masukkan parameter search!'
+    }
+  },
+  noFile: {
+    statusCode: 404,
+    coder: coder,
+    error: {
+      message: 'Masukkan parameter File!'
+    }
+  },
+  noLang: {
+    statusCode: 404,
+    coder: coder,
+    error: {
+      message: 'Masukkan parameter lang!'
+    }
+  },
+  noText: {
+    statusCode: 404,
+    coder: coder,
+    error: {
+      message: 'Masukkan parameter text!'
+    }
+  },
+  noManga: {
+    statusCode: 404,
+    coder: coder,
+    error: {
+      message: 'Masukkan parameter manga!'
+    }
+  },
+  NoEmoticon: {
+    statusCode: 404,
+    coder: coder,
+    error: {
+      message: 'Masukkan parameter emoticon!'
+    }
+  },
+  
+  noAnime: {
+    statusCode: 404,
+    coder: coder,
+    error: {
+      message: 'Masukkan parameter anime!'
+    }
+  },
+   noTitle: {
+    statusCode: 404,
+    coder: coder,
+    error: {
+      message: 'Masukkan parameter Title!'
+    }
+  },
+  noCity: {
+    statusCode: 404,
+    coder: coder,
+    error: {
+      message: 'Masukkan parameter City!'
     }
   },
   noUrl: {
@@ -205,6 +263,70 @@ router.get('/image/pinterest', async (req, res, next) => {
     res.json(msg.error);
   }
 });
+router.get('/image/alphacoders', async (req, res, next) => {
+  try {
+    const apikey = req.query.apikey;
+    const search = req.query.search;
+    if (apikey === undefined) return res.json(msg.noApikey);
+    const check = await cekKey(apikey);
+    if (!check) return res.json(msg.invalidApikey);
+    if (!search) return res.json(msg.noSearch);
+    const limit = await isLimit(apikey);
+    if (limit) return res.json(msg.limit);
+    addRequest();
+    xyz.image.alphacoders(dcApikey, search)
+    .then(async data => {
+      var result = {
+        statusCode: 200,
+        coder: coder,
+        result: data.result
+      };
+      res.json(result);
+      limitAdd(apikey);
+    })
+    .catch(err => {
+      res.json(msg.error);
+    });
+    
+  } catch (err) {
+    console.log(err);
+    res.json(msg.error);
+  }
+});
+
+
+router.get('/image/wallpaperflare', async (req, res, next) => {
+  try {
+    const apikey = req.query.apikey;
+    const search = req.query.search;
+    if (apikey === undefined) return res.json(msg.noApikey);
+    const check = await cekKey(apikey);
+    if (!check) return res.json(msg.invalidApikey);
+    if (!search) return res.json(msg.noSearch);
+    const limit = await isLimit(apikey);
+    if (limit) return res.json(msg.limit);
+    addRequest();
+    xyz.image.wallpaperflare(dcApikey, search)
+    .then(async data => {
+      var result = {
+        statusCode: 200,
+        coder: coder,
+        result: data.result
+      };
+      res.json(result);
+      limitAdd(apikey);
+    })
+    .catch(err => {
+      res.json(msg.error);
+    });
+    
+  } catch (err) {
+    console.log(err);
+    res.json(msg.error);
+  }
+});
+
+
 // [===] END IMAGE FITUR [===]//
 
 //[===] START DOWNLOADER FITUR [===]//
@@ -225,6 +347,393 @@ router.get('/downloader/youtube', async (req, res, next) => {
     if (limit) return res.json(msg.limit);
     addRequest();
     xyz.downloader.ytdl(dcApikey, url, extension)
+    .then(async data => {
+      var result = {
+        statusCode: 200,
+        coder: coder,
+        result: data.result
+      };
+      res.json(result);
+      limitAdd(apikey);
+    })
+    .catch(err => {
+      res.json(msg.error);
+    });
+    
+  } catch (err) {
+    console.log(err);
+    res.json(msg.error);
+  }
+});
+
+router.get('/downloader/ytplay', async (req, res, next) => {
+  try {
+    const apikey = req.query.apikey;
+    const search = req.query.search;
+    const extension = req.query.extension;
+    if (apikey === undefined) return res.json(msg.noApikey);
+    const check = await cekKey(apikey);
+    if (!check) return res.json(msg.invalidApikey);
+    if (!search) return res.json(msg.noSearch);
+    const listExtension = ['audio', 'video'];
+    if (!extension) return res.json(msg.noExtension);
+    if (!listExtension.includes(extension)) return res.json(msg.invalidExtension);
+    const limit = await isLimit(apikey);
+    if (limit) return res.json(msg.limit);
+    addRequest();
+    xyz.downloader.ytplay(dcApikey, search, extension)
+    .then(async data => {
+      var result = {
+        statusCode: 200,
+        coder: coder,
+        result: data.result
+      };
+      res.json(result);
+      limitAdd(apikey);
+    })
+    .catch(err => {
+      res.json(msg.error);
+    });
+    
+  } catch (err) {
+    console.log(err);
+    res.json(msg.error);
+  }
+});
+
+router.get('/downloader/tiktok', async (req, res, next) => {
+  try {
+    const apikey = req.query.apikey;
+    const url = req.query.url;
+    if (apikey === undefined) return res.json(msg.noApikey);
+    const check = await cekKey(apikey);
+    if (!check) return res.json(msg.invalidApikey);
+    if (!url) return res.json(msg.noUrl);
+    if (!isUrl(url)) return res.json(msg.invalidUrl); 
+    const limit = await isLimit(apikey);
+    if (limit) return res.json(msg.limit);
+    addRequest();
+    xyz.downloader.tiktok(dcApikey, url)
+    .then(async data => {
+      var result = {
+        statusCode: 200,
+        coder: coder,
+        result: data
+      };
+      res.json(result);
+      limitAdd(apikey);
+    })
+    .catch(err => {
+      res.json(msg.error);
+    });
+    
+  } catch (err) {
+    console.log(err);
+    res.json(msg.error);
+  }
+});
+
+router.get('/downloader/pinteresturl', async (req, res, next) => {
+  try {
+    const apikey = req.query.apikey;
+    const url = req.query.url;
+    if (apikey === undefined) return res.json(msg.noApikey);
+    const check = await cekKey(apikey);
+    if (!check) return res.json(msg.invalidApikey);
+    if (!url) return res.json(msg.noUrl);
+    if (!isUrl(url)) return res.json(msg.invalidUrl); 
+    const limit = await isLimit(apikey);
+    if (limit) return res.json(msg.limit);
+    addRequest();
+    xyz.downloader.pinterest(dcApikey, url)
+    .then(async data => {
+      var result = {
+        statusCode: 200,
+        coder: coder,
+        result: data.result
+      };
+      res.json(result);
+      limitAdd(apikey);
+    })
+    .catch(err => {
+      res.json(msg.error);
+    });
+    
+  } catch (err) {
+    console.log(err);
+    res.json(msg.error);
+  }
+});
+
+router.get('/downloader/cocofun', async (req, res, next) => {
+  try {
+    const apikey = req.query.apikey;
+    const url = req.query.url;
+    if (apikey === undefined) return res.json(msg.noApikey);
+    const check = await cekKey(apikey);
+    if (!check) return res.json(msg.invalidApikey);
+    if (!url) return res.json(msg.noUrl);
+    if (!isUrl(url)) return res.json(msg.invalidUrl); 
+    const limit = await isLimit(apikey);
+    if (limit) return res.json(msg.limit);
+    addRequest();
+    xyz.downloader.cocofun(dcApikey, url)
+    .then(async data => {
+      var result = {
+        statusCode: 200,
+        coder: coder,
+        result: data.results
+      };
+      res.json(result);
+      limitAdd(apikey);
+    })
+    .catch(err => {
+      res.json(msg.error);
+    });
+    
+  } catch (err) {
+    console.log(err);
+    res.json(msg.error);
+  }
+});
+
+router.get('/downloader/like', async (req, res, next) => {
+  try {
+    const apikey = req.query.apikey;
+    const url = req.query.url;
+    if (apikey === undefined) return res.json(msg.noApikey);
+    const check = await cekKey(apikey);
+    if (!check) return res.json(msg.invalidApikey);
+    if (!url) return res.json(msg.noUrl);
+    if (!isUrl(url)) return res.json(msg.invalidUrl); 
+    const limit = await isLimit(apikey);
+    if (limit) return res.json(msg.limit);
+    addRequest();
+    xyz.downloader.like(dcApikey, url)
+    .then(async data => {
+      var result = {
+        statusCode: 200,
+        coder: coder,
+        result: data.results
+      };
+      res.json(result);
+      limitAdd(apikey);
+    })
+    .catch(err => {
+      res.json(msg.error);
+    });
+    
+  } catch (err) {
+    console.log(err);
+    res.json(msg.error);
+  }
+});
+
+router.get('/downloader/linesticker', async (req, res, next) => {
+  try {
+    const apikey = req.query.apikey;
+    const url = req.query.url;
+    if (apikey === undefined) return res.json(msg.noApikey);
+    const check = await cekKey(apikey);
+    if (!check) return res.json(msg.invalidApikey);
+    if (!url) return res.json(msg.noUrl);
+    if (!isUrl(url)) return res.json(msg.invalidUrl); 
+    const limit = await isLimit(apikey);
+    if (limit) return res.json(msg.limit);
+    addRequest();
+    xyz.downloader.linesticker(dcApikey, url)
+    .then(async data => {
+      var result = {
+        statusCode: 200,
+        coder: coder,
+        result: data.result
+      };
+      res.json(result);
+      limitAdd(apikey);
+    })
+    .catch(err => {
+      res.json(msg.error);
+    });
+    
+  } catch (err) {
+    console.log(err);
+    res.json(msg.error);
+  }
+});
+
+router.get('/downloader/twitter', async (req, res, next) => {
+  try {
+    const apikey = req.query.apikey;
+    const url = req.query.url;
+    if (apikey === undefined) return res.json(msg.noApikey);
+    const check = await cekKey(apikey);
+    if (!check) return res.json(msg.invalidApikey);
+    if (!url) return res.json(msg.noUrl);
+    if (!isUrl(url)) return res.json(msg.invalidUrl); 
+    const limit = await isLimit(apikey);
+    if (limit) return res.json(msg.limit);
+    addRequest();
+    xyz.downloader.twitter(dcApikey, url)
+    .then(async data => {
+      var result = {
+        statusCode: 200,
+        coder: coder,
+        result: data.results
+      };
+      res.json(result);
+      limitAdd(apikey);
+    })
+    .catch(err => {
+      res.json(msg.error);
+    });
+    
+  } catch (err) {
+    console.log(err);
+    res.json(msg.error);
+  }
+});
+
+router.get('/downloader/facebook', async (req, res, next) => {
+  try {
+    const apikey = req.query.apikey;
+    const url = req.query.url;
+    if (apikey === undefined) return res.json(msg.noApikey);
+    const check = await cekKey(apikey);
+    if (!check) return res.json(msg.invalidApikey);
+    if (!url) return res.json(msg.noUrl);
+    if (!isUrl(url)) return res.json(msg.invalidUrl); 
+    const limit = await isLimit(apikey);
+    if (limit) return res.json(msg.limit);
+    addRequest();
+    xyz.downloader.facebook(dcApikey, url)
+    .then(async data => {
+      var result = {
+        statusCode: 200,
+        coder: coder,
+        result: data.result
+      };
+      res.json(result);
+      limitAdd(apikey);
+    })
+    .catch(err => {
+      res.json(msg.error);
+    });
+    
+  } catch (err) {
+    console.log(err);
+    res.json(msg.error);
+  }
+});
+
+router.get('/downloader/soundcloud', async (req, res, next) => {
+  try {
+    const apikey = req.query.apikey;
+    const url = req.query.url;
+    if (apikey === undefined) return res.json(msg.noApikey);
+    const check = await cekKey(apikey);
+    if (!check) return res.json(msg.invalidApikey);
+    if (!url) return res.json(msg.noUrl);
+    if (!isUrl(url)) return res.json(msg.invalidUrl); 
+    const limit = await isLimit(apikey);
+    if (limit) return res.json(msg.limit);
+    addRequest();
+    xyz.downloader.soundcloud(dcApikey, url)
+    .then(async data => {
+      var result = {
+        statusCode: 200,
+        coder: coder,
+        result: data.result
+      };
+      res.json(result);
+      limitAdd(apikey);
+    })
+    .catch(err => {
+      res.json(msg.error);
+    });
+    
+  } catch (err) {
+    console.log(err);
+    res.json(msg.error);
+  }
+});
+
+router.get('/downloader/instagram', async (req, res, next) => {
+  try {
+    const apikey = req.query.apikey;
+    const url = req.query.url;
+    if (apikey === undefined) return res.json(msg.noApikey);
+    const check = await cekKey(apikey);
+    if (!check) return res.json(msg.invalidApikey);
+    if (!url) return res.json(msg.noUrl);
+    if (!isUrl(url)) return res.json(msg.invalidUrl); 
+    const limit = await isLimit(apikey);
+    if (limit) return res.json(msg.limit);
+    addRequest();
+    xyz.downloader.instagram(dcApikey, url)
+    .then(async data => {
+      var result = {
+        statusCode: 200,
+        coder: coder,
+        result: data.result
+      };
+      res.json(result);
+      limitAdd(apikey);
+    })
+    .catch(err => {
+      res.json(msg.error);
+    });
+    
+  } catch (err) {
+    console.log(err);
+    res.json(msg.error);
+  }
+});
+
+router.get('/downloader/imdb', async (req, res, next) => {
+  try {
+    const apikey = req.query.apikey;
+    const url = req.query.url;
+    if (apikey === undefined) return res.json(msg.noApikey);
+    const check = await cekKey(apikey);
+    if (!check) return res.json(msg.invalidApikey);
+    if (!url) return res.json(msg.noUrl);
+    if (!isUrl(url)) return res.json(msg.invalidUrl); 
+    const limit = await isLimit(apikey);
+    if (limit) return res.json(msg.limit);
+    addRequest();
+    xyz.downloader.imdb(dcApikey, url)
+    .then(async data => {
+      var result = {
+        statusCode: 200,
+        coder: coder,
+        result: data
+      };
+      res.json(result);
+      limitAdd(apikey);
+    })
+    .catch(err => {
+      res.json(msg.error);
+    });
+    
+  } catch (err) {
+    console.log(err);
+    res.json(msg.error);
+  }
+});
+
+router.get('/downloader/imgur', async (req, res, next) => {
+  try {
+    const apikey = req.query.apikey;
+    const url = req.query.url;
+    if (apikey === undefined) return res.json(msg.noApikey);
+    const check = await cekKey(apikey);
+    if (!check) return res.json(msg.invalidApikey);
+    if (!url) return res.json(msg.noUrl);
+    if (!isUrl(url)) return res.json(msg.invalidUrl); 
+    const limit = await isLimit(apikey);
+    if (limit) return res.json(msg.limit);
+    addRequest();
+    xyz.downloader.imgur(dcApikey, url)
     .then(async data => {
       var result = {
         statusCode: 200,
@@ -275,6 +784,255 @@ router.get('/info/gempa', async (req, res, next) => {
     res.json(msg.error);
   }
 });
+
+router.get('/info/kodepos', async (req, res, next) => {
+  try {
+    const apikey = req.query.apikey;
+    const city = req.query.city
+    if (apikey === undefined) return res.json(msg.noApikey);
+    const check = await cekKey(apikey);
+    if (!check) return res.json(msg.invalidApikey);
+    const limit = await isLimit(apikey);
+    if (limit) return res.json(msg.limit);
+    if (!city) return res.json(msg.noCity);
+    addRequest();
+    xyz.info.kodepos(dcApikey, city)
+    .then(async data => {
+      var result = {
+        statusCode: 200,
+        coder: coder,
+        result: data.result
+      };
+      res.json(result);
+      limitAdd(apikey);
+    })
+    .catch(err => {
+      console.log(err)
+      res.json(msg.error);
+    });
+    
+  } catch (err) {
+    console.log(err);
+    res.json(msg.error);
+  }
+});
+
+router.get('/info/covidGlobal', async (req, res, next) => {
+  try {
+    const apikey = req.query.apikey;
+    if (apikey === undefined) return res.json(msg.noApikey);
+    const check = await cekKey(apikey);
+    if (!check) return res.json(msg.invalidApikey);
+    const limit = await isLimit(apikey);
+    if (limit) return res.json(msg.limit);
+    addRequest();
+    xyz.info.covidGlobal(dcApikey)
+    .then(async data => {
+      var result = {
+        statusCode: 200,
+        coder: coder,
+        result: data.result
+      };
+      res.json(result);
+      limitAdd(apikey);
+    })
+    .catch(err => {
+      console.log(err)
+      res.json(msg.error);
+    });
+    
+  } catch (err) {
+    console.log(err);
+    res.json(msg.error);
+  }
+});
+
+router.get('/info/tiktokTrend', async (req, res, next) => {
+  try {
+    const apikey = req.query.apikey;
+    if (apikey === undefined) return res.json(msg.noApikey);
+    const check = await cekKey(apikey);
+    if (!check) return res.json(msg.invalidApikey);
+    const limit = await isLimit(apikey);
+    if (limit) return res.json(msg.limit);
+    addRequest();
+    xyz.info.tiktokTrend(dcApikey)
+    .then(async data => {
+      var result = {
+        statusCode: 200,
+        coder: coder,
+        result: data.result
+      };
+      res.json(result);
+      limitAdd(apikey);
+    })
+    .catch(err => {
+      console.log(err)
+      res.json(msg.error);
+    });
+    
+  } catch (err) {
+    console.log(err);
+    res.json(msg.error);
+  }
+});
+
+router.get('/info/inews', async (req, res, next) => {
+  try {
+    const apikey = req.query.apikey;
+    if (apikey === undefined) return res.json(msg.noApikey);
+    const check = await cekKey(apikey);
+    if (!check) return res.json(msg.invalidApikey);
+    const limit = await isLimit(apikey);
+    if (limit) return res.json(msg.limit);
+    addRequest();
+    xyz.info.inews(dcApikey)
+    .then(async data => {
+      var result = {
+        statusCode: 200,
+        coder: coder,
+        result: data.result
+      };
+      res.json(result);
+      limitAdd(apikey);
+    })
+    .catch(err => {
+      console.log(err)
+      res.json(msg.error);
+    });
+    
+  } catch (err) {
+    console.log(err);
+    res.json(msg.error);
+  }
+});
+
+router.get('/info/jadwalBola', async (req, res, next) => {
+  try {
+    const apikey = req.query.apikey;
+    if (apikey === undefined) return res.json(msg.noApikey);
+    const check = await cekKey(apikey);
+    if (!check) return res.json(msg.invalidApikey);
+    const limit = await isLimit(apikey);
+    if (limit) return res.json(msg.limit);
+    addRequest();
+    xyz.info.jadwalBola(dcApikey)
+    .then(async data => {
+      var result = {
+        statusCode: 200,
+        coder: coder,
+        result: data.result
+      };
+      res.json(result);
+      limitAdd(apikey);
+    })
+    .catch(err => {
+      console.log(err)
+      res.json(msg.error);
+    });
+    
+  } catch (err) {
+    console.log(err);
+    res.json(msg.error);
+  }
+});
+
+router.get('/info/servermc', async (req, res, next) => {
+  try {
+    const apikey = req.query.apikey;
+    if (apikey === undefined) return res.json(msg.noApikey);
+    const check = await cekKey(apikey);
+    if (!check) return res.json(msg.invalidApikey);
+    const limit = await isLimit(apikey);
+    if (limit) return res.json(msg.limit);
+    addRequest();
+    xyz.info.servermc(dcApikey)
+    .then(async data => {
+      var result = {
+        statusCode: 200,
+        coder: coder,
+        result: data.result
+      };
+      res.json(result);
+      limitAdd(apikey);
+    })
+    .catch(err => {
+      console.log(err)
+      res.json(msg.error);
+    });
+    
+  } catch (err) {
+    console.log(err);
+    res.json(msg.error);
+  }
+});
+
+router.get('/info/hoax', async (req, res, next) => {
+  try {
+    const apikey = req.query.apikey;
+    if (apikey === undefined) return res.json(msg.noApikey);
+    const check = await cekKey(apikey);
+    if (!check) return res.json(msg.invalidApikey);
+    const limit = await isLimit(apikey);
+    if (limit) return res.json(msg.limit);
+    addRequest();
+    xyz.info.hoax(dcApikey)
+    .then(async data => {
+      var result = {
+        statusCode: 200,
+        coder: coder,
+        result: data.result
+      };
+      res.json(result);
+      limitAdd(apikey);
+    })
+    .catch(err => {
+      console.log(err)
+      res.json(msg.error);
+    });
+    
+  } catch (err) {
+    console.log(err);
+    res.json(msg.error);
+  }
+});
+
+router.get('/info/kompasNews', async (req, res, next) => {
+  try {
+    const apikey = req.query.apikey;
+    if (apikey === undefined) return res.json(msg.noApikey);
+    const check = await cekKey(apikey);
+    if (!check) return res.json(msg.invalidApikey);
+    const limit = await isLimit(apikey);
+    if (limit) return res.json(msg.limit);
+    addRequest();
+    xyz.info.kompasNews(dcApikey)
+    .then(async data => {
+      var result = {
+        statusCode: 200,
+        coder: coder,
+        result: data.result
+      };
+      res.json(result);
+      limitAdd(apikey);
+    })
+    .catch(err => {
+      console.log(err)
+      res.json(msg.error);
+    });
+    
+  } catch (err) {
+    console.log(err);
+    res.json(msg.error);
+  }
+});
+
+
+
+
+
+
+
 //[=== END INFO ===]
 
 //[=== START SEARCH ===]
@@ -309,4 +1067,971 @@ router.get('/search/repo', async (req, res, next) => {
     res.json(msg.error);
   }
 });
+
+router.get('/search/songsliric', async (req, res, next) => {
+  try {
+    const apikey = req.query.apikey;
+    const title = req.query.title;
+    if (apikey === undefined) return res.json(msg.noApikey);
+    const check = await cekKey(apikey);
+    if (!check) return res.json(msg.invalidApikey);
+    if (!title) return res.json(msg.noTitle);
+    const limit = await isLimit(apikey);
+    if (limit) return res.json(msg.limit);
+    addRequest();
+    xyz.search.songsliric(dcApikey, title)
+    .then(async data => {
+      var result = {
+        statusCode: 200,
+        coder: coder,
+        result: data.result
+      };
+      res.json(result);
+      limitAdd(apikey);
+    })
+    .catch(err => {
+      console.log(err)
+      res.json(msg.error);
+    });
+    
+  } catch (err) {
+    console.log(err);
+    res.json(msg.error);
+  }
+});
+router.get('/search/happymod', async (req, res, next) => {
+  try {
+    const apikey = req.query.apikey;
+    const search = req.query.search;
+    if (apikey === undefined) return res.json(msg.noApikey);
+    const check = await cekKey(apikey);
+    if (!check) return res.json(msg.invalidApikey);
+    if (!search) return res.json(msg.noSearch);
+    const limit = await isLimit(apikey);
+    if (limit) return res.json(msg.limit);
+    addRequest();
+    xyz.search.happymod(dcApikey, search)
+    .then(async data => {
+      var result = {
+        statusCode: 200,
+        coder: coder,
+        result: data.result
+      };
+      res.json(result);
+      limitAdd(apikey);
+    })
+    .catch(err => {
+      console.log(err)
+      res.json(msg.error);
+    });
+    
+  } catch (err) {
+    console.log(err);
+    res.json(msg.error);
+  }
+});
+router.get('/search/moddroid', async (req, res, next) => {
+  try {
+    const apikey = req.query.apikey;
+    const search = req.query.search;
+    if (apikey === undefined) return res.json(msg.noApikey);
+    const check = await cekKey(apikey);
+    if (!check) return res.json(msg.invalidApikey);
+    if (!search) return res.json(msg.noSearch);
+    const limit = await isLimit(apikey);
+    if (limit) return res.json(msg.limit);
+    addRequest();
+    xyz.search.moddroid(dcApikey, search)
+    .then(async data => {
+      var result = {
+        statusCode: 200,
+        coder: coder,
+        result: data.result
+      };
+      res.json(result);
+      limitAdd(apikey);
+    })
+    .catch(err => {
+      console.log(err)
+      res.json(msg.error);
+    });
+    
+  } catch (err) {
+    console.log(err);
+    res.json(msg.error);
+  }
+});
+router.get('/search/youtube', async (req, res, next) => {
+  try {
+    const apikey = req.query.apikey;
+    const search = req.query.search;
+    if (apikey === undefined) return res.json(msg.noApikey);
+    const check = await cekKey(apikey);
+    if (!check) return res.json(msg.invalidApikey);
+    if (!search) return res.json(msg.noSearch);
+    const limit = await isLimit(apikey);
+    if (limit) return res.json(msg.limit);
+    addRequest();
+    xyz.search.youtube(dcApikey, search)
+    .then(async data => {
+      var result = {
+        statusCode: 200,
+        coder: coder,
+        result: data.result
+      };
+      res.json(result);
+      limitAdd(apikey);
+    })
+    .catch(err => {
+      console.log(err)
+      res.json(msg.error);
+    });
+    
+  } catch (err) {
+    console.log(err);
+    res.json(msg.error);
+  }
+});
+router.get('/search/sticker', async (req, res, next) => {
+  try {
+    const apikey = req.query.apikey;
+    const search = req.query.search;
+    if (apikey === undefined) return res.json(msg.noApikey);
+    const check = await cekKey(apikey);
+    if (!check) return res.json(msg.invalidApikey);
+    if (!search) return res.json(msg.noSearch);
+    const limit = await isLimit(apikey);
+    if (limit) return res.json(msg.limit);
+    addRequest();
+    xyz.search.sticker(dcApikey, search)
+    .then(async data => {
+      var result = {
+        statusCode: 200,
+        coder: coder,
+        result: data.result
+      };
+      res.json(result);
+      limitAdd(apikey);
+    })
+    .catch(err => {
+      console.log(err)
+      res.json(msg.error);
+    });
+    
+  } catch (err) {
+    console.log(err);
+    res.json(msg.error);
+  }
+});
+
+//[=== END SEARCH ===]
+
+//[=== START EDUCATION ===]
+router.get('/education/search', async (req, res, next) => {
+  try {
+    const apikey = req.query.apikey;
+    const search = req.query.search;
+    if (apikey === undefined) return res.json(msg.noApikey);
+    const check = await cekKey(apikey);
+    if (!check) return res.json(msg.invalidApikey);
+    if (!search) return res.json(msg.noSearch);
+    const limit = await isLimit(apikey);
+    if (limit) return res.json(msg.limit);
+    addRequest();
+    xyz.education.search(dcApikey, search)
+    .then(async data => {
+      var result = {
+        statusCode: 200,
+        coder: coder,
+        result: data.result
+      };
+      res.json(result);
+      limitAdd(apikey);
+    })
+    .catch(err => {
+      console.log(err)
+      res.json(msg.error);
+    });
+    
+  } catch (err) {
+    console.log(err);
+    res.json(msg.error);
+  }
+});
+//[=== END EDUCATION ===]
+
+//[=== START ANIME ===]
+router.get('/anime/otakudesu', async (req, res, next) => {
+  try {
+    const apikey = req.query.apikey;
+    const anime = req.query.anime;
+    if (apikey === undefined) return res.json(msg.noApikey);
+    const check = await cekKey(apikey);
+    if (!check) return res.json(msg.invalidApikey);
+    if (!anime) return res.json(msg.noAnime);
+    const limit = await isLimit(apikey);
+    if (limit) return res.json(msg.limit);
+    addRequest();
+    xyz.anime.otakudesu(dcApikey, anime)
+    .then(async data => {
+      var result = {
+        statusCode: 200,
+        coder: coder,
+        result: data.result
+      };
+      res.json(result);
+      limitAdd(apikey);
+    })
+    .catch(err => {
+      console.log(err)
+      res.json(msg.error);
+    });
+    
+  } catch (err) {
+    console.log(err);
+    res.json(msg.error);
+  }
+});
+router.get('/anime/anoboy', async (req, res, next) => {
+  try {
+    const apikey = req.query.apikey;
+    const anime = req.query.anime;
+    if (apikey === undefined) return res.json(msg.noApikey);
+    const check = await cekKey(apikey);
+    if (!check) return res.json(msg.invalidApikey);
+    if (!anime) return res.json(msg.noAnime);
+    const limit = await isLimit(apikey);
+    if (limit) return res.json(msg.limit);
+    addRequest();
+    xyz.anime.anoboy(dcApikey, anime)
+    .then(async data => {
+      var result = {
+        statusCode: 200,
+        coder: coder,
+        result: data.result
+      };
+      res.json(result);
+      limitAdd(apikey);
+    })
+    .catch(err => {
+      console.log(err)
+      res.json(msg.error);
+    });
+    
+  } catch (err) {
+    console.log(err);
+    res.json(msg.error);
+  }
+});
+router.get('/anime/malTopAnime', async (req, res, next) => {
+  try {
+    const apikey = req.query.apikey; 
+    if (apikey === undefined) return res.json(msg.noApikey);
+    const check = await cekKey(apikey);
+    if (!check) return res.json(msg.invalidApikey); 
+    const limit = await isLimit(apikey);
+    if (limit) return res.json(msg.limit);
+    addRequest();
+    xyz.anime.malTopAnime(dcApikey)
+    .then(async data => {
+      var result = {
+        statusCode: 200,
+        coder: coder,
+        result: data.result
+      };
+      res.json(result);
+      limitAdd(apikey);
+    })
+    .catch(err => {
+      console.log(err)
+      res.json(msg.error);
+    });
+    
+  } catch (err) {
+    console.log(err);
+    res.json(msg.error);
+  }
+});
+router.get('/anime/malTopAiring', async (req, res, next) => {
+  try {
+    const apikey = req.query.apikey; 
+    if (apikey === undefined) return res.json(msg.noApikey);
+    const check = await cekKey(apikey);
+    if (!check) return res.json(msg.invalidApikey); 
+    const limit = await isLimit(apikey);
+    if (limit) return res.json(msg.limit);
+    addRequest();
+    xyz.anime.malTopAiring(dcApikey)
+    .then(async data => {
+      var result = {
+        statusCode: 200,
+        coder: coder,
+        result: data.result
+      };
+      res.json(result);
+      limitAdd(apikey);
+    })
+    .catch(err => {
+      console.log(err)
+      res.json(msg.error);
+    });
+    
+  } catch (err) {
+    console.log(err);
+    res.json(msg.error);
+  }
+});
+router.get('/anime/kiryuu', async (req, res, next) => {
+  try {
+    const apikey = req.query.apikey;
+    const anime = req.query.anime;
+    if (apikey === undefined) return res.json(msg.noApikey);
+    const check = await cekKey(apikey);
+    if (!check) return res.json(msg.invalidApikey);
+    if (!anime) return res.json(msg.noAnime);
+    const limit = await isLimit(apikey);
+    if (limit) return res.json(msg.limit);
+    addRequest();
+    xyz.anime.kiryuu(dcApikey, anime)
+    .then(async data => {
+      var result = {
+        statusCode: 200,
+        coder: coder,
+        result: data.result
+      };
+      res.json(result);
+      limitAdd(apikey);
+    })
+    .catch(err => {
+      console.log(err)
+      res.json(msg.error);
+    });
+    
+  } catch (err) {
+    console.log(err);
+    res.json(msg.error);
+  }
+});
+router.get('/anime/apAnime', async (req, res, next) => {
+  try {
+    const apikey = req.query.apikey;
+    const anime = req.query.anime;
+    if (apikey === undefined) return res.json(msg.noApikey);
+    const check = await cekKey(apikey);
+    if (!check) return res.json(msg.invalidApikey);
+    if (!anime) return res.json(msg.noAnime);
+    const limit = await isLimit(apikey);
+    if (limit) return res.json(msg.limit);
+    addRequest();
+    xyz.anime.apAnime(dcApikey, anime)
+    .then(async data => {
+      var result = {
+        statusCode: 200,
+        coder: coder,
+        result: data.result
+      };
+      res.json(result);
+      limitAdd(apikey);
+    })
+    .catch(err => {
+      console.log(err)
+      res.json(msg.error);
+    });
+    
+  } catch (err) {
+    console.log(err);
+    res.json(msg.error);
+  }
+});
+router.get('/anime/malSearchAnime', async (req, res, next) => {
+  try {
+    const apikey = req.query.apikey;
+    const anime = req.query.anime;
+    if (apikey === undefined) return res.json(msg.noApikey);
+    const check = await cekKey(apikey);
+    if (!check) return res.json(msg.invalidApikey);
+    if (!anime) return res.json(msg.noAnime);
+    const limit = await isLimit(apikey);
+    if (limit) return res.json(msg.limit);
+    addRequest();
+    xyz.anime.malSearchAnime(dcApikey, anime)
+    .then(async data => {
+      var result = {
+        statusCode: 200,
+        coder: coder,
+        result: data.result
+      };
+      res.json(result);
+      limitAdd(apikey);
+    })
+    .catch(err => {
+      console.log(err)
+      res.json(msg.error);
+    });
+    
+  } catch (err) {
+    console.log(err);
+    res.json(msg.error);
+  }
+});
+router.get('/anime/apManga', async (req, res, next) => {
+  try {
+    const apikey = req.query.apikey;
+    const manga = req.query.manga;
+    if (apikey === undefined) return res.json(msg.noApikey);
+    const check = await cekKey(apikey);
+    if (!check) return res.json(msg.invalidApikey);
+    if (!manga) return res.json(msg.noManga);
+    const limit = await isLimit(apikey);
+    if (limit) return res.json(msg.limit);
+    addRequest();
+    xyz.anime.apManga(dcApikey, manga)
+    .then(async data => {
+      var result = {
+        statusCode: 200,
+        coder: coder,
+        result: data.result
+      };
+      res.json(result);
+      limitAdd(apikey);
+    })
+    .catch(err => {
+      console.log(err)
+      res.json(msg.error);
+    });
+    
+  } catch (err) {
+    console.log(err);
+    res.json(msg.error);
+  }
+});
+router.get('/anime/malSearchManga', async (req, res, next) => {
+  try {
+    const apikey = req.query.apikey;
+    const manga = req.query.manga;
+    if (apikey === undefined) return res.json(msg.noApikey);
+    const check = await cekKey(apikey);
+    if (!check) return res.json(msg.invalidApikey);
+    if (!manga) return res.json(msg.noManga);
+    const limit = await isLimit(apikey);
+    if (limit) return res.json(msg.limit);
+    addRequest();
+    xyz.anime.malSearchManga(dcApikey, manga)
+    .then(async data => {
+      var result = {
+        statusCode: 200,
+        coder: coder,
+        result: data.result
+      };
+      res.json(result);
+      limitAdd(apikey);
+    })
+    .catch(err => {
+      console.log(err)
+      res.json(msg.error);
+    });
+    
+  } catch (err) {
+    console.log(err);
+    res.json(msg.error);
+  }
+});
+router.get('/anime/quotesnime', async (req, res, next) => {
+  try {
+    const apikey = req.query.apikey; 
+    if (apikey === undefined) return res.json(msg.noApikey);
+    const check = await cekKey(apikey);
+    if (!check) return res.json(msg.invalidApikey); 
+    const limit = await isLimit(apikey);
+    if (limit) return res.json(msg.limit);
+    addRequest();
+    xyz.anime.quotesnime(dcApikey)
+    .then(async data => {
+      var result = {
+        statusCode: 200,
+        coder: coder,
+        result: data.result
+      };
+      res.json(result);
+      limitAdd(apikey);
+    })
+    .catch(err => {
+      console.log(err)
+      res.json(msg.error);
+    });
+    
+  } catch (err) {
+    console.log(err);
+    res.json(msg.error);
+  }
+});
+router.get('/anime/otakuOngoing', async (req, res, next) => {
+  try {
+    const apikey = req.query.apikey; 
+    if (apikey === undefined) return res.json(msg.noApikey);
+    const check = await cekKey(apikey);
+    if (!check) return res.json(msg.invalidApikey); 
+    const limit = await isLimit(apikey);
+    if (limit) return res.json(msg.limit);
+    addRequest();
+    xyz.anime.otakuOngoing(dcApikey)
+    .then(async data => {
+      var result = {
+        statusCode: 200,
+        coder: coder,
+        result: data.result
+      };
+      res.json(result);
+      limitAdd(apikey);
+    })
+    .catch(err => {
+      console.log(err)
+      res.json(msg.error);
+    });
+    
+  } catch (err) {
+    console.log(err);
+    res.json(msg.error);
+  }
+});
+
+router.get('/anime/mangatoon', async (req, res, next) => {
+  try {
+    const apikey = req.query.apikey;
+    const search = req.query.search;
+    if (apikey === undefined) return res.json(msg.noApikey);
+    const check = await cekKey(apikey);
+    if (!check) return res.json(msg.invalidApikey);
+    if (!search) return res.json(msg.noSearch);
+    const limit = await isLimit(apikey);
+    if (limit) return res.json(msg.limit);
+    addRequest();
+    xyz.anime.mangatoon(dcApikey, search)
+    .then(async data => {
+      var result = {
+        statusCode: 200,
+        coder: coder,
+        result: data.result
+      };
+      res.json(result);
+      limitAdd(apikey);
+    })
+    .catch(err => {
+      console.log(err)
+      res.json(msg.error);
+    });
+    
+  } catch (err) {
+    console.log(err);
+    res.json(msg.error);
+  }
+});
+//[=== END ANIME ===]
+
+//[=== START RANDOM ===]
+router.get('/random/blush', async (req, res, next) => {
+  try {
+    const apikey = req.query.apikey;
+    if (apikey === undefined) return res.json(msg.noApikey);
+    const check = await cekKey(apikey);
+    if (!check) return res.json(msg.invalidApikey);
+    const limit = await isLimit(apikey);
+    if (limit) return res.json(msg.limit);
+    addRequest();
+    xyz.random.blush(dcApikey)
+    .then(async data => {
+      var result = {
+        statusCode: 200,
+        coder: coder,
+        result: data.result
+      };
+      res.json(result);
+      limitAdd(apikey);
+    })
+    .catch(err => {
+      console.log(err)
+      res.json(msg.error);
+    });
+    
+  } catch (err) {
+    console.log(err);
+    res.json(msg.error);
+  }
+});
+router.get('/random/bite', async (req, res, next) => {
+  try {
+    const apikey = req.query.apikey;
+    if (apikey === undefined) return res.json(msg.noApikey);
+    const check = await cekKey(apikey);
+    if (!check) return res.json(msg.invalidApikey);
+    const limit = await isLimit(apikey);
+    if (limit) return res.json(msg.limit);
+    addRequest();
+    xyz.random.bite(dcApikey)
+    .then(async data => {
+      var result = {
+        statusCode: 200,
+        coder: coder,
+        result: data.result
+      };
+      res.json(result);
+      limitAdd(apikey);
+    })
+    .catch(err => {
+      console.log(err)
+      res.json(msg.error);
+    });
+    
+  } catch (err) {
+    console.log(err);
+    res.json(msg.error);
+  }
+});
+router.get('/random/baka', async (req, res, next) => {
+  try {
+    const apikey = req.query.apikey;
+    if (apikey === undefined) return res.json(msg.noApikey);
+    const check = await cekKey(apikey);
+    if (!check) return res.json(msg.invalidApikey);
+    const limit = await isLimit(apikey);
+    if (limit) return res.json(msg.limit);
+    addRequest();
+    xyz.random.baka(dcApikey)
+    .then(async data => {
+      var result = {
+        statusCode: 200,
+        coder: coder,
+        result: data.result
+      };
+      res.json(result);
+      limitAdd(apikey);
+    })
+    .catch(err => {
+      console.log(err)
+      res.json(msg.error);
+    });
+    
+  } catch (err) {
+    console.log(err);
+    res.json(msg.error);
+  }
+});
+router.get('/random/waifu', async (req, res, next) => {
+  try {
+    const apikey = req.query.apikey;
+    if (apikey === undefined) return res.json(msg.noApikey);
+    const check = await cekKey(apikey);
+    if (!check) return res.json(msg.invalidApikey);
+    const limit = await isLimit(apikey);
+    if (limit) return res.json(msg.limit);
+    addRequest();
+    xyz.random.waifu(dcApikey)
+    .then(async data => {
+      var result = {
+        statusCode: 200,
+        coder: coder,
+        result: data.result
+      };
+      res.json(result);
+      limitAdd(apikey);
+    })
+    .catch(err => {
+      console.log(err)
+      res.json(msg.error);
+    });
+    
+  } catch (err) {
+    console.log(err);
+    res.json(msg.error);
+  }
+});
+router.get('/random/kitsune', async (req, res, next) => {
+  try {
+    const apikey = req.query.apikey;
+    if (apikey === undefined) return res.json(msg.noApikey);
+    const check = await cekKey(apikey);
+    if (!check) return res.json(msg.invalidApikey);
+    const limit = await isLimit(apikey);
+    if (limit) return res.json(msg.limit);
+    addRequest();
+    xyz.random.kitsune(dcApikey)
+    .then(async data => {
+      var result = {
+        statusCode: 200,
+        coder: coder,
+        result: data.result
+      };
+      res.json(result);
+      limitAdd(apikey);
+    })
+    .catch(err => {
+      console.log(err)
+      res.json(msg.error);
+    });
+    
+  } catch (err) {
+    console.log(err);
+    res.json(msg.error);
+  }
+});
+router.get('/random/neko', async (req, res, next) => {
+  try {
+    const apikey = req.query.apikey;
+    if (apikey === undefined) return res.json(msg.noApikey);
+    const check = await cekKey(apikey);
+    if (!check) return res.json(msg.invalidApikey);
+    const limit = await isLimit(apikey);
+    if (limit) return res.json(msg.limit);
+    addRequest();
+    xyz.random.neko(dcApikey)
+    .then(async data => {
+      var result = {
+        statusCode: 200,
+        coder: coder,
+        result: data.result
+      };
+      res.json(result);
+      limitAdd(apikey);
+    })
+    .catch(err => {
+      console.log(err)
+      res.json(msg.error);
+    });
+    
+  } catch (err) {
+    console.log(err);
+    res.json(msg.error);
+  }
+});
+//[=== END RANDOM ===]
+
+//[=== START CONVERT ===]
+router.get('/convert/emoji2png', async (req, res, next) => {
+  try {
+    const apikey = req.query.apikey;
+    const emoticon = req.query.emoticon;
+    if (apikey === undefined) return res.json(msg.noApikey);
+    const check = await cekKey(apikey);
+    if (!check) return res.json(msg.invalidApikey);
+    if (!emoticon) return res.json(msg.noEmoticon);
+    const limit = await isLimit(apikey);
+    if (limit) return res.json(msg.limit);
+    addRequest();
+    xyz.convert.emoji2png(dcApikey, emoticon)
+    .then(async data => {
+      var result = {
+        statusCode: 200,
+        coder: coder,
+        result: data.result
+      };
+      res.json(result);
+      limitAdd(apikey);
+    })
+    .catch(err => {
+      console.log(err)
+      res.json(msg.error);
+    });
+    
+  } catch (err) {
+    console.log(err);
+    res.json(msg.error);
+  }
+});
+router.get('/convert/gtts', async (req, res, next) => {
+  try {
+    const apikey = req.query.apikey;
+    const text = req.query.text;    
+    const lang = req.query.lang;
+    if (apikey === undefined) return res.json(msg.noApikey);
+    const check = await cekKey(apikey);
+    if (!check) return res.json(msg.invalidApikey);
+    if (!lang) return res.json(msg.noLang);
+    if (!text) return res.json(msg.noText);
+    const limit = await isLimit(apikey);
+    if (limit) return res.json(msg.limit);
+    addRequest();
+    xyz.convert.gtts(dcApikey, lang, text)
+    .then(async data => {
+      var result = {
+        statusCode: 200,
+        coder: coder,
+        result: data.result
+      };
+      res.json(result);
+      limitAdd(apikey);
+    })
+    .catch(err => {
+      console.log(err)
+      res.json(msg.error);
+    });
+    
+  } catch (err) {
+    console.log(err);
+    res.json(msg.error);
+  }
+});
+//[=== END CONVERT ===]
+
+//[=== START UPLOADER ===]
+
+router.get('/uploader/fileungu', async (req, res, next) => {
+  try {
+    const apikey = req.query.apikey;
+    const file = req.query.file;
+    if (apikey === undefined) return res.json(msg.noApikey);
+    const check = await cekKey(apikey);
+    if (!check) return res.json(msg.invalidApikey);
+    if (!file) return res.json(msg.noFile);
+    const limit = await isLimit(apikey);
+    if (limit) return res.json(msg.limit);
+    addRequest();
+    xyz.uploader.fileungu(dcApikey, file)
+    .then(async data => {
+      var result = {
+        statusCode: 200,
+        coder: coder,
+        result: data.result
+      };
+      res.json(result);
+      limitAdd(apikey);
+    })
+    .catch(err => {
+      console.log(err)
+      res.json(msg.error);
+    });
+    
+  } catch (err) {
+    console.log(err);
+    res.json(msg.error);
+  }
+});
+//[=== END UPLOADER ===]
+
+//[=== START CRYPTO ===]
+
+router.get('/crypto/encode64', async (req, res, next) => {
+  try {
+    const apikey = req.query.apikey;
+    const text = req.query.text; 
+    if (apikey === undefined) return res.json(msg.noApikey);
+    const check = await cekKey(apikey);
+    if (!check) return res.json(msg.invalidApikey);
+    if (!text) return res.json(msg.noText);
+    const limit = await isLimit(apikey);
+    if (limit) return res.json(msg.limit);
+    addRequest();
+    xyz.crypto.encode64(dcApikey, text)
+    .then(async data => {
+      var result = {
+        statusCode: 200,
+        coder: coder,
+        result: data.result
+      };
+      res.json(result);
+      limitAdd(apikey);
+    })
+    .catch(err => {
+      console.log(err)
+      res.json(msg.error);
+    });
+    
+  } catch (err) {
+    console.log(err);
+    res.json(msg.error);
+  }
+});
+router.get('/crypto/encode32', async (req, res, next) => {
+  try {
+    const apikey = req.query.apikey;
+    const text = req.query.text; 
+    if (apikey === undefined) return res.json(msg.noApikey);
+    const check = await cekKey(apikey);
+    if (!check) return res.json(msg.invalidApikey);
+    if (!text) return res.json(msg.noText);
+    const limit = await isLimit(apikey);
+    if (limit) return res.json(msg.limit);
+    addRequest();
+    xyz.crypto.encode32(dcApikey, text)
+    .then(async data => {
+      var result = {
+        statusCode: 200,
+        coder: coder,
+        result: data.result
+      };
+      res.json(result);
+      limitAdd(apikey);
+    })
+    .catch(err => {
+      console.log(err)
+      res.json(msg.error);
+    });
+    
+  } catch (err) {
+    console.log(err);
+    res.json(msg.error);
+  }
+});
+router.get('/crypto/decode64', async (req, res, next) => {
+  try {
+    const apikey = req.query.apikey;
+    const text = req.query.text; 
+    if (apikey === undefined) return res.json(msg.noApikey);
+    const check = await cekKey(apikey);
+    if (!check) return res.json(msg.invalidApikey);
+    if (!text) return res.json(msg.noText);
+    const limit = await isLimit(apikey);
+    if (limit) return res.json(msg.limit);
+    addRequest();
+    xyz.crypto.decode64(dcApikey, text)
+    .then(async data => {
+      var result = {
+        statusCode: 200,
+        coder: coder,
+        result: data.result
+      };
+      res.json(result);
+      limitAdd(apikey);
+    })
+    .catch(err => {
+      console.log(err)
+      res.json(msg.error);
+    });
+    
+  } catch (err) {
+    console.log(err);
+    res.json(msg.error);
+  }
+});
+router.get('/crypto/decode32', async (req, res, next) => {
+  try {
+    const apikey = req.query.apikey;
+    const text = req.query.text; 
+    if (apikey === undefined) return res.json(msg.noApikey);
+    const check = await cekKey(apikey);
+    if (!check) return res.json(msg.invalidApikey);
+    if (!text) return res.json(msg.noText);
+    const limit = await isLimit(apikey);
+    if (limit) return res.json(msg.limit);
+    addRequest();
+    xyz.crypto.decode32(dcApikey, text)
+    .then(async data => {
+      var result = {
+        statusCode: 200,
+        coder: coder,
+        result: data.result
+      };
+      res.json(result);
+      limitAdd(apikey);
+    })
+    .catch(err => {
+      console.log(err)
+      res.json(msg.error);
+    });
+    
+  } catch (err) {
+    console.log(err);
+    res.json(msg.error);
+  }
+});
+
 module.exports = router;
