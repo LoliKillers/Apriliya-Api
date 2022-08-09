@@ -7,7 +7,7 @@
     "nodejs",
     "npm"
   ],
-  "website": "https://darkcoder.com/",
+  "website": "https://darkcoder.xyz/",
   "repository": "https://github.com/LoliKillers/Apriliya-Api",
   "logo": "https://avatars.githubusercontent.com/u/80396688?v=4",
   "env": {
@@ -47,7 +47,7 @@
     {
       "plan": "heroku-postgresql",
       "options": {
-        "version": "9.5"
+        "version": "12"
       }
     }
   ]
