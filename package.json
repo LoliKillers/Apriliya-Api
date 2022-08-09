@@ -26,6 +26,7 @@
     "express": "^4.18.1",
     "express-ejs-layouts": "^2.5.1",
     "express-session": "^1.17.3",
+    "fs-extra": "^10.1.0",
     "memorystore": "^1.6.7",
     "mongoose": "^6.5.1",
     "morgan": "^1.10.0",
