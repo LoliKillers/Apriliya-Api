@@ -331,7 +331,7 @@ var DateTimePicker = (function ($, moment) {
     // ReSharper disable once DeclarationHides
     // ReSharper disable once InconsistentNaming
 
-    var DateTimePicker = function () {
+    var DateTimePicker = (function () {
         /** @namespace eData.dateOptions */
         /** @namespace moment.tz */
 
@@ -1571,7 +1571,7 @@ var DateTimePicker = (function ($, moment) {
         }]);
 
         return DateTimePicker;
-    }();
+    }());
 
     return DateTimePicker;
 }(jQuery, moment));
@@ -1607,7 +1607,7 @@ var TempusDominusBootstrap4 = (function ($) {
 
     // ReSharper disable once InconsistentNaming
 
-    var TempusDominusBootstrap4 = function (_DateTimePicker) {
+    var TempusDominusBootstrap4 = (function (_DateTimePicker) {
         _inherits(TempusDominusBootstrap4, _DateTimePicker);
 
         function TempusDominusBootstrap4(element, options) {
@@ -2711,7 +2711,7 @@ var TempusDominusBootstrap4 = (function ($) {
         };
 
         return TempusDominusBootstrap4;
-    }(DateTimePicker);
+    }(DateTimePicker));
 
     /**
     * ------------------------------------------------------------------------
