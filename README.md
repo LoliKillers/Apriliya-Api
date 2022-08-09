@@ -77,6 +77,11 @@ git add .
 git commit -m "Make It Butter"
 git push heroku master
 ```
+
+#### Or
+
+[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
 Open : [https://APP_NAME.herokuapp.com](https://APP_NAME.herokuapp.com)
 Demo : [https://april-api.herokuapp.com](https://april-api.herokuapp.com)
 ## What is next?
