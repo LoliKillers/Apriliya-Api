@@ -1,0 +1,57 @@
+<!---
+Mungkin buat lu gak berharga,
+Tapi Ini Buat Kami Sangat Berharga!!
+Hargai Buatan Orang
+
+Rasulullah shallallahu 'alaihi wasallam bersabda:
+"Barangsiapa mengaku-ngaku sesuatu yang bukan miliknya,
+Maka ia bukan dari golongan kami,
+Dan hendaklah ia menyiapkan tempat duduknya dalam neraka"
+
+Thanks To :
+• Nodejs
+• Npm
+• Github
+• Heroku
+• Loli Killers
+• Dark Coder Team
+-->
+<div class="container-fluid">
+<div class="row h-100 align-items-center justify-content-center" style="min-height: 100vh;">
+<div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4">
+<div class="bg-light rounded p-4 p-sm-5 my-4 mx-3">
+<div class="d-flex align-items-center justify-content-between mb-3">
+<a href="https://github.com/LoliKillers/Apriliya-Api" class="">
+<h3 class="text-primary"><i class="fa fa-code me-2"></i>Apriliya Api</h3>
+</a>
+<h3>Register</h3>
+</div>
+<% if (message_error != '') {
+  %>
+  <%- message_error %>
+  <%
+} %>
+<form method="POST" action="/user/register:user">
+<div class="form-floating mb-3">
+<input name="username" type="text" class="form-control" id="floatingText" placeholder="username">
+<label for="floatingText">Username</label>
+</div>
+<div class="form-floating mb-3">
+<input name="email" type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+<label for="floatingInput">Email address</label>
+</div>
+<div class="form-floating mb-4">
+<input name="password" type="password" class="form-control" id="floatingPassword" placeholder="Password">
+<label for="floatingPassword">Password</label>
+</div>
+<div class="form-floating mb-4">
+<input name="confirmPassword" type="password" class="form-control" id="floatingPassword" placeholder="Confirm Password">
+<label for="floatingPassword">confirm password</label>
+</div>
+<button type="submit" class="btn btn-primary py-3 w-100 mb-4">Register</button>
+</form>
+<p class="text-center mb-0">Already have an Account? <a href="/user/login">Login</a></p>
+</div>
+</div>
+</div>
+</div>
