@@ -24,12 +24,12 @@
     "LIMIT_USER": {
       "description": "Limit Pengguna Gratisan.",
       "required": true,
-      "value": 100
+      "value": "100"
     },
     "LIMIT_PREMIUM": {
       "description": "Limit Pengguna Premium.",
       "required": true,
-      "value": 1000
+      "value": "1000"
     },
     "DC_APIKEY": {
       "description": "Dapatkan apikey Dark Coder Dengan Gratis Di https://api.darkcoder.xyz",
