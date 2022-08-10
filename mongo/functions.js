@@ -119,18 +119,22 @@ module.exports.totalVisit = async () => {
   }
 };
 module.exports.addRequest = async () => {
-  let x = await Apidb.find({});
-  let addTotalReq = x[0].totalRequest += 1;
-  Apidb.updateOne({ apriliya: 'april' }, { totalRequest: addTotalReq }, (err, res) => {
-    if (err) throw err;
-  });
+  let x = await Apidb.findOne({ apriliya: 'april' });
+  if (x === undefined) {
+    await addApiDb()
+  } else {
+    let addTotalReq = x.totalRequest += 1;
+    await Apidb.updateOne({ apriliya: 'april' }, { totalRequest: addTotalReq });
+  }
 };
 module.exports.addVisitor = async () => {
-  let x = await Apidb.find({});
-  let addTotalVisit = x[0].totalVisitor += 1;
-  Apidb.updateOne({ apriliya: 'april' }, { totalVisitor: addTotalVisit }, (err, res) => {
-    if (err) throw err;
-  });
+  let x = await Apidb.findOne({ apriliya: 'april' });
+  if (x == undefined) {
+    await addApiDb()
+  } else {
+    let addTotalVisit = x.totalVisitor += 1;
+    await Apidb.updateOne({ apriliya: 'april' }, { totalVisitor: addTotalVisit })
+  }
 };
 module.exports.cekKey = async (apikey) => {
   let x = await User.findOne({ apikey: apikey });
