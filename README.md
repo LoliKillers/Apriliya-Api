@@ -26,9 +26,8 @@
 
 Sebelum melakukan apapun silahkan dapatkan
 * [Mongo DB URI](https://www.mongodb.com)
-* [DC Apikey](https://api.darkcoder.xyz)
 
-Tanpa mereka berdua web API tidak akan berjalan
+Tanpa mongodb web API tidak akan berjalan
 
 buat file .env terlebih dahulu
 ```shell
@@ -37,11 +36,10 @@ mv example.env .env
 letakkan semua itu di file .env
 
 ```javascript
-DB_URI = 'URI_MONGODB_HERE' //URI Database mongodb bisa kalian dapatkan di https://www.mogodb.com
-LIMIT_PREMIUM =  //Limit pengguna gratisan
-LIMIT_USER =  //Limit pengguna premium
-CODER_NAME = 'Loli Killers' //Entahlah mau di ganti apa tidak
-DC_APIKEY = '' //Apikey DC, bisa kalian dapatkan gratis dengan cara registrasi di https://api.darkcoder.xyz 
+DB_URI = '' //URI Database mongodb bisa kalian dapatkan di https://www.mogodb.com
+LIMIT_PREMIUM =  ''//Limit pengguna gratisan
+LIMIT_USER = '' //Limit pengguna premium
+CODER_NAME = '' //Entahlah mau di ganti apa tidak
 KEY = '' //Kata kunci untuk menambahkan pengguna premium
 ```
 
@@ -89,5 +87,4 @@ Demo : [https://april-api.herokuapp.com](https://april-api.herokuapp.com)
 * Jika masih bingung silahkan tanyakan kepada saya di [WhatsApp](https://chat.whatsapp.com/EH9g1SKf588HXEFY51zQMu)
 * Menemukan error? silahkan tarik permintaan, atau bisa beritahu saya di [WhatsApp](https://chat.whatsapp.com/EH9g1SKf588HXEFY51zQMu)
 * Request? silahkan hubungi saya di [WhatsApp](https://chat.whatsapp.com/EH9g1SKf588HXEFY51zQMu)
-* [api.darkcoder.xyz](https://api.darkcoder.xyz)
-* [xyzapi](https://npmjs.com/package/xyzapi)
+* [lolkil-scraper](https://npmjs.com/package/lolkil-scraper)

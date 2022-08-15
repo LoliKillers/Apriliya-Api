@@ -68,7 +68,7 @@ Thanks To :
 </div>
 <div class="navbar-nav w-100">
 <a href="/" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
-<div class="nav-item dropdown">
+<!--<div class="nav-item dropdown">
 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-mosque me-2"></i>Islami</a>
 <div class="dropdown-menu bg-transparent border-0">
 <small>
@@ -77,94 +77,70 @@ Thanks To :
 </small>
 </div>
 </div>
+-->
 <div class="nav-item dropdown">
 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-image me-2"></i>Image</a>
 <div class="dropdown-menu bg-transparent border-0">
 <small>
-<a href="/api/image/pinterest?apikey=<%= x.apikey %>&search=Loli" class="dropdown-item">• Pinterest</a>
-<a href="/api/image/alphacoders?apikey=<%= x.apikey %>&search=Loli" class="dropdown-item">• Wallpaper Flare</a>
-<a href="/api/image/wallpaperflare?apikey=<%= x.apikey %>&search=Loli" class="dropdown-item">• Alphacoders</a>
+<a href="/api/image/pinterest?apikey=<%= x.apikey %>&search=Loli" class="dropdown-item">1. Pinterest</a>
+<a href="/api/image/wallpaperflare?apikey=<%= x.apikey %>&search=Loli" class="dropdown-item">2. Wallpaper Flare</a>
 </small>
 </div>
 </div>
+
 <div class="nav-item dropdown">
 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-download me-2"></i>Downloader</a>
 <div class="dropdown-menu bg-transparent border-0">
 <small>
-<a href="/api/downloader/youtube?apikey=<%= x.apikey %>&url=https://youtu.be/_-FPPIzX1YY&extension=audio" class="dropdown-item">• YouTube</a>
-<a href="/api/downloader/ytplay?apikey=<%= x.apikey %>&search=video+30+detik&extension=audio" class="dropdown-item">• Youtube Play</a>
-<a href="/api/downloader/tiktok?apikey=<%= x.apikey %>&url=https://vt.tiktok.com/ZSR2vqUFY/?k=1" class="dropdown-item">• Tiktok</a>>
-<a href="/api/downloader/pinteresturl?apikey=<%= x.apikey %>&url=https://pin.it/3txywaE" class="dropdown-item">• Pinterest</a>
-<a href="/api/downloader/cocofun?apikey=<%= x.apikey %>&url=https://www.icocofun.com/share/post/517276251123?lang=id&pkg=id&share_to=copy_link&m=cfee9cb126865309a13926d38e16e14a&d=5102db0091f25b246fc5fe673b20a6910ad9519526f5e49e8126f36067febf14&nt=1" class="dropdown-item">• Cocofun</a>
-<a href="/api/downloader/like?apikey=<%= x.apikey %>&url=https://l.likee.video/v/tlufy2" class="dropdown-item">• Like</a>
-<a href="/api/downloader/linesticker?apikey=<%= x.apikey %>&url=https://store.line.me/stickershop/product/1528/en" class="dropdown-item">• Linesticker</a>
-<a href="/api/downloader/twitter?apikey=<%= x.apikey %>&url=https://twitter.com/JohnnySpittin/status/1546263372399874055?s=20&t=WBcUAmf5Q1-Ua1vP6_-rfg" class="dropdown-item">• Twitter</a>
-<a href="/api/downloader/facebook?apikey=<%= x.apikey %>&url=your_link" class="dropdown-item">• Facebook</a>
-<a href="/api/downloader/soundcloud?apikey=<%= x.apikey %>&url=https://soundcloud.com/ragini-nirala/fungi-look-alive?utm_source=mobi&utm_campaign=social_sharing" class="dropdown-item">• Soundcloud</a>
-<a href="/api/downloader/instagram?apikey=<%= x.apikey %>&url=https://www.instagram.com/p/Cft9dzdP9We/?igshid=YmMyMTA2M2Y=" class="dropdown-item">• Instagram</a>
-<a href="/api/downloader/imdb?apikey=<%= x.apikey %>&url=https://m.imdb.com/video/vi1913960985/?playlistId=tt0388629?ref_=ext_shr_lnk" class="dropdown-item">• Imdb</a>
-<a href="/api/downloader/imgur?apikey=<%= x.apikey %>&url=https://imgur.com/gallery/bHr8lR3" class="dropdown-item">• Imgur</a> 
+<a href="/api/downloader/tiktok?apikey=<%= x.apikey %>&url=https://vt.tiktok.com/ZSwWCk5o/" class="dropdown-item">1. TikTok</a>
+<a href="/api/downloader/youtube_dl_mp3?apikey=<%= x.apikey %>&url=https://youtu.be/COh7wqu83P8" class="dropdown-item">2. Youtube Downloader Mp3</a>
+<a href="/api/downloader/youtube_dl_mp4?apikey=<%= x.apikey %>&url=https://youtu.be/COh7wqu83P8" class="dropdown-item">3. Youtube Downloader Mp4</a>
+<a href="/api/downloader/youtube_play_mp3?apikey=<%= x.apikey %>&search=One+Piece" class="dropdown-item">4. Youtube Play Mp3</a>
+<a href="/api/downloader/youtube_play_mp4?apikey=<%= x.apikey %>&search=One+Piece" class="dropdown-item">5. Youtube Play Mp4</a>
 </small>
 </div>
 </div>
+
 <div class="nav-item dropdown">
 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-info me-2"></i>Info</a>
 <div class="dropdown-menu bg-transparent border-0">
 <small>
-<a href="/api/info/gempa?apikey=<%= x.apikey %>" class="dropdown-item">• Gempa</a>
-<a href="/api/info/kodepos?apikey=<%= x.apikey %>&city=Jakarta" class="dropdown-item">• Kodepos</a>
-<a href="/api/info/gempa?apikey=<%= x.apikey %>" class="dropdown-item">• Gempa</a>
-<a href="/api/info/covidGlobal?apikey=<%= x.apikey %>" class="dropdown-item">• Covid Global</a>
-<a href="/api/info/tiktokTrend?apikey=<%= x.apikey %>" class="dropdown-item">• Tiktok Trend</a>
-<a href="/api/info/inews?apikey=<%= x.apikey %>" class="dropdown-item">• Inews</a>
-<a href="/api/info/jadwalBola?apikey=<%= x.apikey %>" class="dropdown-item">• Jadwal Bola</a>
-<a href="/api/info/servermc?apikey=<%= x.apikey %>" class="dropdown-item">• Server Mc</a>
-<a href="/api/info/hoax?apikey=<%= x.apikey %>" class="dropdown-item">• Hoax</a>
-<a href="/api/info/kompasNews?apikey=<%= x.apikey %>" class="dropdown-item">• Kompas News</a>
+<a href="/api/info/gempa_terkini?apikey=<%= x.apikey %>" class="dropdown-item">1. Gempa Terkini</a>
 </small>
 </div>
 </div>
+
 <div class="nav-item dropdown">
 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-search me-2"></i>Search</a>
 <div class="dropdown-menu bg-transparent border-0">
 <small>
-<a href="/api/search/repo?apikey=<%= x.apikey %>&search=Apriliya-Api" class="dropdown-item">• Repo Github</a>
-<a href="/api/search/songsliric?apikey=<%= x.apikey %>&title=brokenangel" class="dropdown-item">• Songs Liric</a>
-<a href="/api/search/happymod?apikey=<%= x.apikey %>&search=freefire" class="dropdown-item">• Happymod</a>
-<a href="/api/search/moddroid?apikey=<%= x.apikey %>&search=freefire" class="dropdown-item">• Moddroid</a>
-<a href="/api/search/youtube?apikey=<%= x.apikey %>&search=nasa" class="dropdown-item">• Youtube</a>
-<a href="/api/search/sticker?apikey=<%= x.apikey %>&search=pentol" class="dropdown-item">• Sticker</a>
+<a href="/api/search/github_repo?apikey=<%= x.apikey %>&search=Apriliya-Api" class="dropdown-item">1. Repo Github</a>
 </small>
 </div>
 </div>
-<div class="nav-item dropdown">
+
+<!--<div class="nav-item dropdown">
 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-book me-2"></i>Education</a>
 <div class="dropdown-menu bg-transparent border-0">
 <small>
 <a href="/api/education/search?apikey=<%= x.apikey %>&search=manusia" class="dropdown-item">• Search</a> 
 </small>
 </div>
-</div>
+</div>-->
 <div class="nav-item dropdown">
 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-cat me-2"></i>Anime</a>
 <div class="dropdown-menu bg-transparent border-0">
 <small>
-<a href="/api/anime/otakudesu?apikey=<%= x.apikey %>&anime=naruto" class="dropdown-item">• otakudesu</a> 
-<a href="/api/anime/anoboy?apikey=<%= x.apikey %>&anime=naruto" class="dropdown-item">• anoboy</a> 
-<a href="/api/anime/malTopAnime?apikey=<%= x.apikey %>" class="dropdown-item">• MAL Top Anime</a> 
-<a href="/api/anime/malTopAiring?apikey=<%= x.apikey %>" class="dropdown-item">• MAL Top Airing</a> 
-<a href="/api/anime/kiryuu?apikey=<%= x.apikey %>&anime=naruto" class="dropdown-item">• MAL Search Anime</a> 
-<a href="/api/anime/apAnime?apikey=<%= x.apikey %>&anime=naruto" class="dropdown-item">• Anime Planet Search</a> 
-<a href="/api/anime/malSearchAnime?apikey=<%= x.apikey %>&anime=naruto" class="dropdown-item">• Anime Kiryuu</a> 
-<a href="/api/anime/apManga?apikey=<%= x.apikey %>&manga=naruto" class="dropdown-item">• Anime Kiryuu</a> 
-<a href="/api/anime/malSearchManga?apikey=<%= x.apikey %>&manga=naruto" class="dropdown-item">• Anime Kiryuu</a> 
-<a href="/api/anime/otakuOngoing?apikey=<%= x.apikey %>" class="dropdown-item">• Otaku Ongoing</a> 
-<a href="/api/anime/quotesnime?apikey=<%= x.apikey %>" class="dropdown-item">• Quotesnime</a> 
-<a href="/api/anime/mangatoon?apikey=<%= x.apikey %>" class="dropdown-item">• Manga Toons</a> 
+<a href="/api/anime/otakudesu?apikey=<%= x.apikey %>&anime=One+Piece" class="dropdown-item">1. Otakudesu</a> 
+<a href="/api/anime/anoboy?apikey=<%= x.apikey %>&anime=One+Piece" class="dropdown-item">2. Anoboy</a> 
+<a href="/api/anime/mal_top_airing?apikey=<%= x.apikey %>" class="dropdown-item">3. MAL Top Anime</a> 
+<a href="/api/anime/mal_top_airing?apikey=<%= x.apikey %>" class="dropdown-item">4. MAL Top Airing</a> 
+<a href="/api/anime/mal_search_anime?apikey=<%= x.apikey %>&anime=One+Piece" class="dropdown-item">5. MAL Search Anime</a> 
+<a href="/api/anime/mal_search_manga?apikey=<%= x.apikey %>&manga=One+Piece" class="dropdown-item">6. MAL Search Manga</a> 
 </small>
 </div>
 </div>
-
+<!--
 <div class="nav-item dropdown">
 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-random me-2"></i>Random</a>
 <div class="dropdown-menu bg-transparent border-0">
@@ -178,17 +154,17 @@ Thanks To :
 </small>
 </div>
 </div>
-
+-->
 <div class="nav-item dropdown">
 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-retweet me-2"></i>Convert</a>
 <div class="dropdown-menu bg-transparent border-0">
 <small>
-<a href="/api/convert/emoji2png?apikey=<%= x.apikey %>&emoticon=😀" class="dropdown-item">• emoji2png</a> 
-<a href="/api/convert/gtts?apikey=<%= x.apikey %>&lang=id&text=halo" class="dropdown-item">• gtts</a> 
+<a href="/api/convert/emoji_to_png?apikey=<%= x.apikey %>&emoticon=😀" class="dropdown-item">1. Emoji To Png</a> 
+<a href="/api/convert/gtts?apikey=<%= x.apikey %>&lang=id&text=Hello+World" class="dropdown-item">2. Goole Text To Speech</a> 
 </small>
 </div>
 </div>
-
+<!--
 <div class="nav-item dropdown">
 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-info me-2"></i>uploader</a>
 <div class="dropdown-menu bg-transparent border-0">
@@ -197,7 +173,8 @@ Thanks To :
 </small>
 </div>
 </div>
-
+-->
+<!--
 <div class="nav-item dropdown">
 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-lock me-2"></i>crypto</a>
 <div class="dropdown-menu bg-transparent border-0">
@@ -206,11 +183,14 @@ Thanks To :
 <a href="/api/crypto/decode32?apikey=<%= x.apikey %>" class="dropdown-item">• decode32</a> 
 <a href="/api/crypto/encode64?apikey=<%= x.apikey %>" class="dropdown-item">• encode64</a> 
 <a href="/api/crypto/encode32?apikey=<%= x.apikey %>" class="dropdown-item">• encode32</a> 
-
 </small>
 </div>
 </div>
-
+-->
+<br>
+<br>
+<br>
+<br>
 </div>
 </nav>
 </div>
