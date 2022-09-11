@@ -22,6 +22,8 @@
 <a href="https://makeapullrequest.com" alt="PRs Welcome"> <img src="https://img.shields.io/badge/PRs-welcome-blue.svg" /> </a>
 </p>
 
+![Alt](https://repobeats.axiom.co/api/embed/994be5af506efd008b9ac5aa95c76a4472798a25.svg "Repobeats analytics image")
+
 ### Required
 
 Sebelum melakukan apapun silahkan dapatkan
