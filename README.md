@@ -52,7 +52,7 @@ apt update -y
 apt upgrade -y
 apt install nodejs -y
 apt install npm -y
-apt install git
+apt install git -y
 ```
 
 ### Runing in localhost
